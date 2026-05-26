@@ -101,7 +101,7 @@
       color: var(--white);
       position: relative;
       overflow: hidden;
-      min-height: calc(100vh - 70px);
+      min-height: 100vh;
     }
     .hero__bg {
       position: absolute;
@@ -132,7 +132,7 @@
       padding: 60px 0;
       position: relative;
       z-index: 2;
-      min-height: calc(100vh - 70px);
+      min-height: 100vh;
     }
     .hero__content { max-width: 580px; }
     .hero__badge {
@@ -1016,22 +1016,24 @@
     @media (max-width: 960px) {
       .section { padding: 44px 0; }
       .section-header { margin-bottom: 32px; }
-      /* v4d mobile: image bg, text centered */
-      .hero { min-height: 92vh; }
-      .hero__inner { min-height: 92vh; padding: 48px 0; }
-      .hero__bg img { object-position: center center; }
+      /* v4d mobile: image visible top, content compact */
+      .hero { min-height: auto; }
+      .hero__inner { min-height: auto; padding: 220px 0 36px; align-items: flex-end; }
+      .hero__bg img { object-position: center top; height: 320px; }
+      .hero__bg { height: 320px; inset: auto 0 auto 0; top: 0; }
       .hero__bg::after {
         background: linear-gradient(
           180deg,
-          rgba(0,0,0,0.55) 0%,
-          rgba(0,0,0,0.85) 60%,
-          rgba(0,0,0,0.92) 100%
+          rgba(0,0,0,0.25) 0%,
+          rgba(0,0,0,0.65) 60%,
+          var(--black) 100%
         );
       }
-      .hero__title { font-size: 36px; line-height: 1.0; margin-bottom: 16px; letter-spacing: -1.5px; }
-      .hero__subtitle { font-size: 15px; margin-bottom: 22px; }
-      .hero__content { text-align: center; max-width: 100%; }
-      .hero__trust { justify-content: center; font-size: 12px; gap: 8px; }
+      .hero { background: var(--black); }
+      .hero__title { font-size: 32px; line-height: 1.0; margin-bottom: 12px; letter-spacing: -1.4px; }
+      .hero__subtitle { font-size: 15px; margin-bottom: 16px; }
+      .hero__content { text-align: center; max-width: 100%; position: relative; z-index: 3; }
+      .hero__trust { justify-content: center; font-size: 12px; gap: 8px; margin-top: 16px; }
       .hero__badge { margin-bottom: 14px; font-size: 12px; letter-spacing: 2.5px; }
       .hero__cta { padding: 14px 24px; font-size: 15px; }
       .zip-check { padding: 28px 0; }
@@ -1075,18 +1077,7 @@
 </head>
 <body>
 
-  <!-- ═══ HEADER ═══ -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="#" class="header__logo">Home<span>IQ</span></a>
-      <a href="tel:+18005550000" class="header__phone">
-        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-        (800) 555-0000
-      </a>
-    </div>
-  </header>
-
-  <!-- ═══ HERO v4d — Full-bleed image bg ═══ -->
+<!-- ═══ HERO v4d — Full-bleed image bg ═══ -->
   <section class="hero">
     <div class="hero__bg">
       <img src="images/product-outdoor-cam.jpg" alt="Outdoor security camera with spotlight, day-night view" loading="eager">
