@@ -1,0 +1,32 @@
+# Build/temp
+.playwright-mcp/
+*.png
+!verticals/*/landings/*/images/*.png
+!verticals/*/assets/**/*.png
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local incoming assets (large unsorted dumps)
+verticals/*/assets/incoming/
+
+# Claude local
+.claude/
+
+# Node (if added later)
+node_modules/
+.env
+.env.local
+
+# Build artifacts
+dist/
+build/
+.cache/

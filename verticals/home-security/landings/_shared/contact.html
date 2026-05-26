@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Home IQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', "Helvetica Neue", Arial, sans-serif;
+      color: #171717;
+      line-height: 1.65;
+      background: #fff;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    header { background: #000; color: #fff; padding: 18px 0; }
+    .logo { font-size: 22px; font-weight: 700; color: #fff; text-decoration: none; }
+    .logo span { color: #05E5AF; }
+    main { padding: 64px 0 80px; }
+    h1 { font-size: 36px; margin-bottom: 12px; letter-spacing: -1px; }
+    .lead { color: #737373; font-size: 17px; margin-bottom: 40px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+    .card { background: #f5f5f5; border-radius: 12px; padding: 28px; text-align: center; }
+    .card svg { width: 28px; height: 28px; stroke: #05E5AF; margin: 0 auto 12px; display: block; }
+    .card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #000; }
+    .card p { font-size: 14px; color: #404040; margin: 0; }
+    .card a { color: #04C698; font-weight: 600; text-decoration: none; }
+    h2 { font-size: 22px; margin-top: 32px; margin-bottom: 12px; color: #000; }
+    p, li { font-size: 15px; color: #404040; margin-bottom: 12px; }
+    ul { margin-left: 24px; margin-bottom: 12px; }
+    .phone-cta {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 40px 32px;
+      border-radius: 16px;
+      margin-bottom: 48px;
+    }
+    .phone-cta h2 { color: #fff; margin: 0 0 8px; }
+    .phone-cta p { color: #d4d4d4; margin-bottom: 20px; }
+    .phone-cta a {
+      display: inline-block;
+      background: #05E5AF;
+      color: #000;
+      padding: 16px 28px;
+      border-radius: 100px;
+      font-size: 22px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .phone-cta small { display: block; color: #737373; font-size: 13px; margin-top: 12px; }
+    footer { background: #000; color: #d4d4d4; padding: 32px 0; font-size: 13px; text-align: center; }
+    footer a { color: #d4d4d4; margin: 0 12px; text-decoration: none; }
+    footer a:hover { color: #05E5AF; }
+    @media (max-width: 720px) {
+      .cards { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+      .phone-cta a { font-size: 18px; padding: 14px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container"><a href="../v4-product-led/" class="logo">Home<span>IQ</span></a></div>
+  </header>
+
+  <main class="container">
+    <h1>Get in touch</h1>
+    <p class="lead">Have a question, a complaint, or want to update your information? Pick whichever option works best for you.</p>
+
+    <div class="cards">
+      <div class="card">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25"/></svg>
+        <h3>General questions</h3>
+        <p><a href="mailto:hello@homeimprove.io">hello@homeimprove.io</a></p>
+      </div>
+      <div class="card">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+        <h3>Privacy / Data</h3>
+        <p><a href="mailto:privacy@homeimprove.io">privacy@homeimprove.io</a></p>
+      </div>
+      <div class="card">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+        <h3>Partner with us</h3>
+        <p><a href="mailto:partners@homeimprove.io">partners@homeimprove.io</a></p>
+      </div>
+    </div>
+
+    <div class="phone-cta">
+      <h2>Need to talk to a security pro?</h2>
+      <p>Our team is available Monday–Friday, 7am–9pm and Saturday 9am–6pm (local time).</p>
+      <a href="tel:+18005550000">📞 (800) 555-0000</a>
+      <small>Calls may be recorded for quality. Standard rates apply.</small>
+    </div>
+
+    <h2>Mailing address</h2>
+    <p>
+      Home IQ Marketplace LLC<br>
+      123 Market Street, Suite 400<br>
+      Wilmington, DE 19801<br>
+      United States
+    </p>
+
+    <h2>Business hours</h2>
+    <ul>
+      <li>Monday – Friday: 7:00 AM – 9:00 PM (local time)</li>
+      <li>Saturday: 9:00 AM – 6:00 PM</li>
+      <li>Sunday: Closed</li>
+    </ul>
+
+    <h2>Response time</h2>
+    <p>We aim to respond to all emails within 1 business day. For urgent matters, please call us directly.</p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="privacy-policy.html">Privacy</a> ·
+      <a href="terms-of-use.html">Terms</a> ·
+      <a href="contact.html">Contact</a>
+      <p style="margin-top: 12px;">© 2026 Home IQ. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

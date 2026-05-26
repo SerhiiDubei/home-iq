@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Security Landings — Index</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', "Helvetica Neue", Arial, sans-serif;
+      color: #171717;
+      background: #f5f5f5;
+      line-height: 1.5;
+      padding: 32px 16px;
+    }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .header h1 { font-size: 28px; letter-spacing: -0.5px; }
+    .header p { color: #737373; font-size: 14px; margin-top: 4px; }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .links a {
+      background: #fff;
+      color: #171717;
+      padding: 8px 14px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid #e5e5e5;
+      transition: all 0.15s;
+    }
+    .links a:hover { background: #171717; color: #fff; border-color: #171717; }
+
+    .group { margin-bottom: 32px; }
+    .group-title {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #737373;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e5e5;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border-color: #d4d4d4;
+    }
+    .card__preview {
+      aspect-ratio: 16/10;
+      background: #f5f5f5;
+      position: relative;
+      overflow: hidden;
+    }
+    .card__preview iframe {
+      width: 1280px;
+      height: 800px;
+      border: 0;
+      transform: scale(0.219);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+    .card__preview-link {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+    }
+    .card__body { padding: 16px 18px 18px; }
+    .card__tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .tag-teal { background: #05E5AF; color: #000; }
+    .tag-blue { background: #004F9F; color: #fff; }
+    .tag-legacy { background: #e5e5e5; color: #404040; }
+    .card__title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .card__desc { font-size: 13px; color: #737373; line-height: 1.5; }
+    .card__actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .card__btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .card__btn--primary { background: #000; color: #fff; }
+    .card__btn--primary:hover { background: #404040; }
+    .card__btn--secondary {
+      background: #fff;
+      color: #404040;
+      border: 1px solid #e5e5e5;
+    }
+    .card__btn--secondary:hover { background: #f5f5f5; }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+      color: #737373;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>Home Security — All Landings</h1>
+        <p>13 versions for testing. Click any thumbnail to open.</p>
+      </div>
+      <div class="links">
+        <a href="INSIGHTS.md">📋 Insights & Rules</a>
+        <a href="CHANGELOG.md">📅 Changelog</a>
+        <a href="_shared/privacy-policy.html">Privacy</a>
+        <a href="_shared/terms-of-use.html">Terms</a>
+        <a href="_shared/contact.html">Contact</a>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="group">
+      <h2 class="group-title">v4 — Teal / Black (Vivint-style)</h2>
+      <div class="grid">
+        <div class="card">
+          <a href="v4-product-led/" class="card__preview"><iframe src="v4-product-led/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-teal">v4</span>
+            <h3 class="card__title">v4 — Product-led (doorbell)</h3>
+            <p class="card__desc">Side-by-side hero, lifestyle doorbell shot, 4 trust pills 2×2</p>
+            <div class="card__actions">
+              <a href="v4-product-led/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v4b-hero-lineup/" class="card__preview"><iframe src="v4b-hero-lineup/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-teal">v4b</span>
+            <h3 class="card__title">v4b — Product Lineup</h3>
+            <p class="card__desc">Same as v4 but hero = full SimpliSafe system lineup photo</p>
+            <div class="card__actions">
+              <a href="v4b-hero-lineup/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v4c-hero-camera/" class="card__preview"><iframe src="v4c-hero-camera/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-teal">v4c</span>
+            <h3 class="card__title">v4c — Outdoor Camera</h3>
+            <p class="card__desc">Same as v4 but hero = Ring Spotlight day/night shot</p>
+            <div class="card__actions">
+              <a href="v4c-hero-camera/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v4d-hero-fullbleed/" class="card__preview"><iframe src="v4d-hero-fullbleed/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-teal">v4d ★</span>
+            <h3 class="card__title">v4d — Full-bleed Hero</h3>
+            <p class="card__desc">Image як full bg with dark gradient + inline trust strip (• 4.8 ★ • BBB A+ • ...)</p>
+            <div class="card__actions">
+              <a href="v4d-hero-fullbleed/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v4e-hero-split/" class="card__preview"><iframe src="v4e-hero-split/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-teal">v4e ★</span>
+            <h3 class="card__title">v4e — Hard 50/50 Split</h3>
+            <p class="card__desc">Image fills entire right half edge-to-edge + award logos (Newsweek/PCMag) trust</p>
+            <div class="card__actions">
+              <a href="v4e-hero-split/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v4f-hero-card/" class="card__preview"><iframe src="v4f-hero-card/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-teal">v4f ★</span>
+            <h3 class="card__title">v4f — Dark Card Hero</h3>
+            <p class="card__desc">Single dark card on light bg + metric grid trust (4.8★ / A+ / 24/7 / 1day)</p>
+            <div class="card__actions">
+              <a href="v4f-hero-card/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="group">
+      <h2 class="group-title">v5 — Blue Vivint palette</h2>
+      <div class="grid">
+        <div class="card">
+          <a href="v5-blue-product-led/" class="card__preview"><iframe src="v5-blue-product-led/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-blue">v5</span>
+            <h3 class="card__title">v5 — Blue Product-led</h3>
+            <p class="card__desc">UP TO / 6 MONTHS / FREE MONITORING* on light blue gradient</p>
+            <div class="card__actions">
+              <a href="v5-blue-product-led/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v5b-blue-lineup/" class="card__preview"><iframe src="v5b-blue-lineup/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-blue">v5b</span>
+            <h3 class="card__title">v5b — Blue + Lineup photo</h3>
+            <p class="card__desc">Same as v5 but hero = full product lineup photo</p>
+            <div class="card__actions">
+              <a href="v5b-blue-lineup/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v5c-blue-camera/" class="card__preview"><iframe src="v5c-blue-camera/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-blue">v5c</span>
+            <h3 class="card__title">v5c — Blue + Outdoor Camera</h3>
+            <p class="card__desc">Same as v5 but hero = Ring outdoor camera</p>
+            <div class="card__actions">
+              <a href="v5c-blue-camera/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="group">
+      <h2 class="group-title">Earlier versions (reference)</h2>
+      <div class="grid">
+        <div class="card">
+          <a href="v3-vivint-inspired/" class="card__preview"><iframe src="v3-vivint-inspired/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-legacy">v3</span>
+            <h3 class="card__title">v3 — Vivint CSS Override</h3>
+            <p class="card__desc">v1 base + Vivint design tokens applied as CSS override</p>
+            <div class="card__actions">
+              <a href="v3-vivint-inspired/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v2-improved/" class="card__preview"><iframe src="v2-improved/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-legacy">v2</span>
+            <h3 class="card__title">v2 — Brand-neutral Improved</h3>
+            <p class="card__desc">Self-contained, FAQ, sticky phone, Memorial Day offer</p>
+            <div class="card__actions">
+              <a href="v2-improved/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v1-upgrade-security/" class="card__preview"><iframe src="v1-upgrade-security/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-legacy">v1</span>
+            <h3 class="card__title">v1-upgrade-security (live)</h3>
+            <p class="card__desc">Original blue ленд from homeimprove.io</p>
+            <div class="card__actions">
+              <a href="v1-upgrade-security/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="v1-install-direct/" class="card__preview"><iframe src="v1-install-direct/" loading="lazy"></iframe><span class="card__preview-link"></span></a>
+          <div class="card__body">
+            <span class="card__tag tag-legacy">v1</span>
+            <h3 class="card__title">v1-install-direct (live)</h3>
+            <p class="card__desc">Vivint promo ленд with promo code 4FREE</p>
+            <div class="card__actions">
+              <a href="v1-install-direct/" target="_blank" class="card__btn card__btn--primary">Open ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>★ = reimagined hero variant. PM-driven A/B test setup. Last update: May 2026.</p>
+    </div>
+  </div>
+</body>
+</html>

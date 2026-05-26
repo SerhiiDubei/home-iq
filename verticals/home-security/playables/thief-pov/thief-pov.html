@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Thief's POV — Home Security Playable</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=JetBrains+Mono&display=swap');
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;touch-action:none}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Space Grotesk',sans-serif}
+
+#wrapper{
+  position:absolute;
+  top:50%;left:50%;
+  width:1080px;height:1920px;
+  transform-origin:center center;
+  overflow:hidden
+}
+
+#pixi-canvas{position:absolute;top:0;left:0;display:block}
+
+/* ── SCREENS ── */
+.screen{
+  position:absolute;top:0;left:0;
+  width:1080px;height:1920px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  opacity:0;pointer-events:none
+}
+.screen.active{pointer-events:all}
+
+/* ── INTRO ── */
+#s-intro{padding:260px 80px;gap:0}
+.i-time{
+  font-family:'JetBrains Mono',monospace;
+  font-size:38px;color:#475569;
+  letter-spacing:6px;margin-bottom:64px
+}
+.i-hl{
+  font-size:116px;font-weight:800;color:#F8FAFC;
+  text-align:center;line-height:1.05;margin-bottom:48px
+}
+.i-sub{font-size:52px;font-weight:400;color:#94A3B8;text-align:center}
+.cursor{
+  display:inline-block;width:4px;height:52px;
+  background:#94A3B8;vertical-align:middle;margin-left:6px;
+  animation:blink 1s step-end infinite
+}
+@keyframes blink{50%{opacity:0}}
+
+/* ── STREET ── */
+#s-street{justify-content:flex-end;padding-bottom:265px}
+.str-prompt{
+  font-size:44px;color:#475569;letter-spacing:1px;
+  text-align:center;margin-bottom:48px
+}
+.hlabels{
+  display:flex;width:1080px;
+  padding:0 28px;justify-content:space-between
+}
+.hl{
+  font-size:42px;font-weight:700;color:#1E293B;
+  width:240px;text-align:center;transition:color .2s
+}
+
+/* ── OUTCOME ── */
+#s-outcome{padding:260px 80px;gap:44px}
+.o-badge{
+  font-size:112px;font-weight:800;
+  text-align:center;line-height:1.1
+}
+.o-sub{
+  font-size:48px;font-weight:400;color:#CBD5E1;
+  text-align:center;line-height:1.55;
+  white-space:pre-line;max-width:920px
+}
+
+/* ── STAT ── */
+#s-stat{gap:36px;padding:260px 80px}
+.stat-row{display:flex;align-items:flex-end;line-height:1}
+.stat-n{font-size:260px;font-weight:800;color:#22C55E;line-height:1}
+.stat-p{font-size:130px;font-weight:800;color:#22C55E;padding-bottom:22px}
+.stat-t{
+  font-size:56px;font-weight:500;color:#E2E8F0;
+  text-align:center;line-height:1.45;max-width:900px
+}
+.stat-s{font-size:30px;color:#475569;font-style:italic;text-align:center}
+
+/* ── CTA ── */
+#s-cta{gap:56px;padding:260px 80px}
+.cta-hl{
+  font-size:104px;font-weight:800;color:#F8FAFC;
+  text-align:center;line-height:1.1
+}
+#cta-btn{
+  width:920px;padding:46px 0;
+  background:#22C55E;color:#052E16;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:56px;font-weight:800;letter-spacing:1px;
+  border:none;border-radius:28px;cursor:pointer;pointer-events:all
+}
+#cta-btn:active{background:#16A34A;transform:scale(.97)}
+.cta-trust{font-size:32px;color:#475569;text-align:center;line-height:1.6}
+
+/* ── FLASH ── */
+#flash{
+  position:absolute;top:0;left:0;
+  width:1080px;height:1920px;
+  pointer-events:none;opacity:0
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+  <canvas id="pixi-canvas"></canvas>
+
+  <div class="screen" id="s-intro">
+    <div class="i-time">2:14 AM</div>
+    <div class="i-hl">You're<br>the thief.</div>
+    <div class="i-sub">Pick your target<span class="cursor"></span></div>
+  </div>
+
+  <div class="screen" id="s-street">
+    <div class="str-prompt">Tap a house to target it</div>
+    <div class="hlabels">
+      <div class="hl" id="hl-a">A</div>
+      <div class="hl" id="hl-b">B</div>
+      <div class="hl" id="hl-c">C</div>
+      <div class="hl" id="hl-d">D</div>
+    </div>
+  </div>
+
+  <div class="screen" id="s-outcome">
+    <div class="o-badge" id="o-badge"></div>
+    <div class="o-sub"  id="o-sub"></div>
+  </div>
+
+  <div class="screen" id="s-stat">
+    <div class="stat-row">
+      <span class="stat-n" id="stat-n">0</span>
+      <span class="stat-p">%</span>
+    </div>
+    <div class="stat-t">of burglars skip homes<br>with a visible camera</div>
+    <div class="stat-s">— Rutgers University Crime Study</div>
+  </div>
+
+  <div class="screen" id="s-cta">
+    <div class="cta-hl">Make Your Home<br>the Wrong Target</div>
+    <button id="cta-btn">GET FREE QUOTE →</button>
+    <div class="cta-trust">Free consultation · No commitment<br>Licensed in 48 states</div>
+  </div>
+
+  <div id="flash"></div>
+</div>
+
+<!-- DEV: CDN links. For Meta submission → inline these libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+'use strict';
+
+// ── Meta API shim ────────────────────────────────────────────
+window.FbPlayableAd = window.FbPlayableAd || {
+  onCTAClick(){ window.open('about:blank','_blank'); }
+};
+
+// ── Constants ────────────────────────────────────────────────
+const W=1080, H=1920;
+const HW=214, HH=268;   // house body width / height
+const HY=1155;          // top y of house body
+const CX=[148,391,634,877]; // house center-x positions
+
+const DEFS=[
+  {id:'A', cx:CX[0], type:'secure'},
+  {id:'B', cx:CX[1], type:'vulnerable'},
+  {id:'C', cx:CX[2], type:'badcam'},
+  {id:'D', cx:CX[3], type:'motion'},
+];
+
+// ── Scale wrapper ────────────────────────────────────────────
+const wrapper=document.getElementById('wrapper');
+function scale(){
+  const s=Math.min(innerWidth/W, innerHeight/H);
+  wrapper.style.transform=`translate(-50%,-50%) scale(${s})`;
+}
+scale();
+addEventListener('resize',scale);
+
+// ── PixiJS ───────────────────────────────────────────────────
+const app=new PIXI.Application({
+  view:document.getElementById('pixi-canvas'),
+  width:W, height:H,
+  backgroundColor:0x080816,
+  antialias:true, resolution:1,
+});
+app.renderer.plugins.interaction?.destroy?.();
+
+const bgLayer=new PIXI.Container();
+const houseLayer=new PIXI.Container();
+app.stage.addChild(bgLayer, houseLayer);
+
+// ── Background ───────────────────────────────────────────────
+function drawBg(){
+  const g=new PIXI.Graphics();
+
+  // Sky
+  g.beginFill(0x080816); g.drawRect(0,0,W,1500); g.endFill();
+
+  // Stars
+  for(let i=0;i<55;i++){
+    const a=Math.random()*.55+.1;
+    const r=Math.random()*2.2+.4;
+    g.beginFill(0xFFFFFF,a);
+    g.drawCircle(Math.random()*W, 60+Math.random()*700, r);
+    g.endFill();
+  }
+
+  // Moon body
+  g.beginFill(0xFEF3C7,.92);
+  g.drawCircle(876,158,60);
+  g.endFill();
+  // Crescent cutout
+  g.beginFill(0x080816);
+  g.drawCircle(904,143,52);
+  g.endFill();
+
+  // Horizon haze
+  g.beginFill(0x0F172A,.7); g.drawRect(0,840,W,340); g.endFill();
+
+  // Ground / street
+  g.beginFill(0x111111); g.drawRect(0,H-390,W,390); g.endFill();
+  // Sidewalk edge
+  g.beginFill(0x1C1C1C); g.drawRect(0,H-412,W,24); g.endFill();
+  // Road line
+  g.beginFill(0xFDE68A,.12); g.drawRect(W/2-3,H-340,6,260); g.endFill();
+
+  // Lamp post
+  g.beginFill(0x334155); g.drawRect(W/2-9,810,17,590); g.endFill();
+  g.beginFill(0x475569); g.drawRect(W/2-52,805,96,22); g.endFill();
+  // Lamp head
+  g.beginFill(0xFDE68A); g.drawRect(W/2-24,788,48,22); g.endFill();
+  // Lamp glow
+  g.beginFill(0xFDE68A,.045);
+  g.drawEllipse(W/2,980,340,500);
+  g.endFill();
+
+  bgLayer.addChild(g);
+}
+
+// ── Camera sprite (sub-container, so it can rotate) ─────────
+function makeCam(bad){
+  const con=new PIXI.Container();
+  const g=new PIXI.Graphics();
+  // Body
+  g.beginFill(0x374151); g.drawRect(-26,-8,32,16); g.endFill();
+  // Lens ring
+  g.beginFill(0x111827); g.drawCircle(-26,0,9); g.endFill();
+  // Lens glass
+  g.beginFill(0x3B82F6,.85); g.drawCircle(-26,0,5); g.endFill();
+  // Mount arm
+  g.beginFill(0x6B7280); g.drawRect(4,-5,18,10); g.endFill();
+  // LED
+  g.beginFill(bad?0xFBBF24:0x22C55E); g.drawCircle(-12,-5,4); g.endFill();
+  con.addChild(g);
+  if(bad) con.rotation=0.75; // tilted ~43°
+  return con;
+}
+
+// ── Yard sign ────────────────────────────────────────────────
+function makeSign(){
+  const g=new PIXI.Graphics();
+  // Post
+  g.beginFill(0x94A3B8); g.drawRect(13,0,5,26); g.endFill();
+  // Board
+  g.beginFill(0x1E3A8A); g.drawRect(0,2,32,18); g.endFill();
+  // Text lines
+  g.beginFill(0x93C5FD); g.drawRect(4,7,14,3); g.endFill();
+  g.beginFill(0x93C5FD); g.drawRect(4,13,9,3); g.endFill();
+  return g;
+}
+
+// ── Motion sensor ────────────────────────────────────────────
+function makeMotion(){
+  const g=new PIXI.Graphics();
+  g.beginFill(0xEF4444); g.drawRect(-10,0,20,12); g.endFill();
+  g.beginFill(0xEF4444,.22); g.drawEllipse(0,20,90,160); g.endFill();
+  return g;
+}
+
+// ── House container ──────────────────────────────────────────
+function makeHouse(def){
+  const con=new PIXI.Container();
+  const x=def.cx-HW/2;
+  const y=HY;
+  const bt=y+HH; // bottom of body
+
+  const g=new PIXI.Graphics();
+
+  // Body
+  g.beginFill(0x1E293B); g.drawRect(x,y,HW,HH); g.endFill();
+
+  // Roof triangle
+  g.beginFill(0x0D1829);
+  g.moveTo(x-20,y); g.lineTo(def.cx,y-90); g.lineTo(x+HW+20,y);
+  g.closePath(); g.endFill();
+
+  // Door
+  g.beginFill(0x0B1120); g.drawRect(def.cx-28,bt-102,56,102); g.endFill();
+  // Door knob
+  g.beginFill(0x64748B); g.drawCircle(def.cx+14,bt-50,5); g.endFill();
+
+  // Windows
+  const wc=def.type==='motion'?0xFDE68A:0x0B1120;
+  const wa=def.type==='motion'?.65:1;
+  g.beginFill(wc,wa); g.drawRect(x+16,y+36,56,48); g.endFill();
+  g.beginFill(wc,wa); g.drawRect(x+HW-72,y+36,56,48); g.endFill();
+
+  // Window glow for motion house
+  if(def.type==='motion'){
+    g.beginFill(0xFDE68A,.05); g.drawRect(x,y,HW,HH); g.endFill();
+  }
+
+  // Lawn strip
+  g.beginFill(0x14532D,.45); g.drawRect(x-10,bt,HW+20,18); g.endFill();
+
+  con.addChild(g);
+
+  // Floodlight glow (secure)
+  if(def.type==='secure'){
+    const fl=new PIXI.Graphics();
+    fl.beginFill(0xFDE68A,.055);
+    fl.drawEllipse(def.cx,y-10,190,110);
+    fl.endFill();
+    con.addChild(fl);
+  }
+
+  // Camera (secure / badcam)
+  if(def.type==='secure'||def.type==='badcam'){
+    const cam=makeCam(def.type==='badcam');
+    cam.position.set(x+HW-24, y+26);
+    con.addChild(cam);
+  }
+
+  // Yard sign (secure)
+  if(def.type==='secure'){
+    const sgn=makeSign();
+    sgn.position.set(x+14, bt+2);
+    con.addChild(sgn);
+  }
+
+  // Motion sensor (motion)
+  if(def.type==='motion'){
+    const ms=makeMotion();
+    ms.position.set(def.cx, bt-118);
+    con.addChild(ms);
+  }
+
+  // Hit area (invisible rect for pointer events)
+  const hit=new PIXI.Graphics();
+  hit.beginFill(0xFFFFFF,.001);
+  hit.drawRect(x-10, y-95, HW+20, HH+115);
+  hit.endFill();
+  con.addChild(hit);
+
+  return con;
+}
+
+// ── Build all houses ─────────────────────────────────────────
+const hCons={};
+
+function buildHouses(){
+  DEFS.forEach(def=>{
+    const con=makeHouse(def);
+    con.eventMode='static';
+    con.cursor='pointer';
+
+    con.on('pointerover', ()=>onHover(con,def.id,true));
+    con.on('pointerout',  ()=>onHover(con,def.id,false));
+    con.on('pointerdown', ()=>onPick(def));
+
+    houseLayer.addChild(con);
+    hCons[def.id]=con;
+  });
+}
+
+function onHover(con,id,over){
+  gsap.to(con.scale,{x:over?1.07:1,y:over?1.07:1,duration:.2});
+  const el=document.getElementById('hl-'+id.toLowerCase());
+  if(el) el.style.color=over?'#94A3B8':'#1E293B';
+}
+
+// ── Screen manager ───────────────────────────────────────────
+function showScreen(next,prev){
+  if(prev){
+    const p=document.getElementById(prev);
+    gsap.to(p,{opacity:0,duration:.35,onComplete:()=>p.classList.remove('active')});
+  }
+  const n=document.getElementById(next);
+  n.classList.add('active');
+  gsap.fromTo(n,{opacity:0},{opacity:1,duration:.4});
+}
+
+// ── INTRO ────────────────────────────────────────────────────
+function playIntro(){
+  showScreen('s-intro',null);
+  gsap.timeline({delay:.2})
+    .from('.i-time',{y:-22,opacity:0,duration:.5})
+    .from('.i-hl',  {y:50, opacity:0,duration:.65},'+= .2')
+    .from('.i-sub', {y:20, opacity:0,duration:.5}, '+= .2')
+    .add(playStreet,'+=1.7');
+}
+
+// ── STREET ───────────────────────────────────────────────────
+let idleTimer;
+
+function playStreet(){
+  showScreen('s-street','s-intro');
+  gsap.from(houseLayer,{y:55,opacity:0,duration:.75,ease:'power2.out'});
+  gsap.from('.str-prompt',{opacity:0,y:18,duration:.55,delay:.45});
+
+  // Idle nudge: pulse house B after 4.5s if no pick yet
+  idleTimer=setTimeout(()=>{
+    const b=hCons['B'];
+    if(b) gsap.to(b.scale,{x:1.08,y:1.08,duration:.5,yoyo:true,repeat:5,ease:'sine.inOut'});
+  },4500);
+}
+
+// ── OUTCOMES config ──────────────────────────────────────────
+const OUTCOMES={
+  secure:{
+    badge:'BUSTED.',  color:'#EF4444',
+    sub:'The camera flagged you before\nyou touched the door.',
+    flash:'#EF4444',
+  },
+  vulnerable:{
+    badge:'You got in.', color:'#22C55E',
+    sub:'No cameras. Easy target.\nLike 3 million homes near you.',
+    flash:'#22C55E', pivot:'#EF4444',
+  },
+  badcam:{
+    badge:'BUSTED.',  color:'#EF4444',
+    sub:'Even a badly placed camera\ntriggered the alert. It rotated.',
+    flash:'#EF4444',
+  },
+  motion:{
+    badge:'Too Risky.', color:'#FACC15',
+    sub:'Motion light. You froze.\nA neighbor already called 911.',
+    flash:'#FACC15',
+  },
+};
+
+// ── PICK ─────────────────────────────────────────────────────
+function onPick(def){
+  clearTimeout(idleTimer);
+  // Disable all houses
+  Object.values(hCons).forEach(c=>{ c.eventMode='none'; });
+
+  gsap.to(hCons[def.id].scale,{x:1.12,y:1.12,duration:.25,ease:'back.out(2)'});
+  setTimeout(()=>playOutcome(def.type), 380);
+}
+
+// ── OUTCOME ──────────────────────────────────────────────────
+function playOutcome(type){
+  const o=OUTCOMES[type];
+  const badge=document.getElementById('o-badge');
+  const sub  =document.getElementById('o-sub');
+  badge.textContent=o.badge;
+  badge.style.color=o.color;
+  sub.textContent  =o.sub;
+
+  // Screen flash
+  const fl=document.getElementById('flash');
+  fl.style.background=o.flash;
+  gsap.fromTo(fl,{opacity:.7},{opacity:0,duration:.65,ease:'power2.out'});
+
+  showScreen('s-outcome','s-street');
+
+  const tl=gsap.timeline();
+  tl.from(badge,{scale:.35,opacity:0,duration:.55,ease:'back.out(2.5)'})
+    .from(sub,  {y:28,opacity:0,duration:.5},'+=.15');
+
+  if(o.pivot) tl.to(badge,{color:o.pivot,duration:.75},'+=1.2');
+
+  tl.add(playStat,'+=2.5');
+}
+
+// ── STAT ─────────────────────────────────────────────────────
+function playStat(){
+  showScreen('s-stat','s-outcome');
+
+  const obj={v:0};
+  gsap.to(obj,{v:83,duration:1.9,ease:'power2.out',
+    onUpdate:()=>{ document.getElementById('stat-n').textContent=Math.round(obj.v); }
+  });
+
+  gsap.timeline()
+    .from('.stat-row', {scale:.25,opacity:0,duration:.7,ease:'back.out(2)'})
+    .from('.stat-t',   {y:32,opacity:0,duration:.5},'+=.3')
+    .from('.stat-s',   {opacity:0,duration:.4},'+=.2')
+    .add(playCTA,'+=2.2');
+}
+
+// ── CTA ──────────────────────────────────────────────────────
+function playCTA(){
+  showScreen('s-cta','s-stat');
+
+  gsap.timeline()
+    .from('.cta-hl',   {y:44,opacity:0,duration:.65})
+    .from('#cta-btn',  {scale:.7,opacity:0,duration:.55,ease:'back.out(2)'},'+=.15')
+    .from('.cta-trust',{opacity:0,duration:.4},'+=.1');
+
+  gsap.to('#cta-btn',{scale:1.04,duration:.9,yoyo:true,repeat:-1,ease:'sine.inOut',delay:1.2});
+
+  document.getElementById('cta-btn').onclick=()=>FbPlayableAd.onCTAClick();
+}
+
+// ── BOOT ─────────────────────────────────────────────────────
+drawBg();
+buildHouses();
+playIntro();
+</script>
+</body>
+</html>

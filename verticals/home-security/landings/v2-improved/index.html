@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Home Security — Free Installation Available</title>
+  <meta name="description" content="Get professional home security with 24/7 monitoring. Free equipment and installation available. See providers in your area.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a202c; line-height: 1.6; }
+    img { max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --navy: #0f2044;
+      --navy-mid: #1a3a6e;
+      --blue: #2563eb;
+      --orange: #f59e0b;
+      --orange-dark: #d97706;
+      --green: #16a34a;
+      --light-bg: #f8fafc;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    /* ── PROMO BAR ── */
+    .promo-bar {
+      background: var(--orange);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .promo-bar strong { font-weight: 800; }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--navy);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo { color: #fff; font-size: 20px; font-weight: 800; }
+    .nav-logo span { color: var(--orange); }
+    .nav-phone {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    @media (min-width: 768px) { .nav-phone { display: flex; } }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: #fff;
+      padding: 40px 20px;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (min-width: 820px) {
+      .hero-inner { grid-template-columns: 1fr 400px; gap: 48px; }
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero-sub { font-size: 17px; color: #cbd5e1; margin-bottom: 24px; line-height: 1.6; }
+    .hero-bullets { list-style: none; margin-bottom: 0; }
+    .hero-bullets li {
+      font-size: 15px;
+      color: #e2e8f0;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .hero-bullets li::before { content: '✓'; color: #4ade80; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .form-card-title { color: var(--navy); font-size: 20px; font-weight: 800; margin-bottom: 4px; text-align: center; }
+    .form-card-sub { color: var(--text-muted); font-size: 13px; text-align: center; margin-bottom: 20px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 16px;
+      color: var(--text);
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus { outline: none; border-color: var(--blue); }
+    .btn-primary {
+      width: 100%;
+      padding: 16px;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 4px;
+    }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-primary:active { transform: scale(0.98); }
+    .form-disclaimer { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+    .form-disclaimer a { color: var(--blue); text-decoration: underline; }
+
+    /* Phone in form — shown via zip checker */
+    .phone-section { text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: none; }
+    .phone-section p { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+    .btn-phone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--navy);
+      color: #fff;
+      padding: 13px 24px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 800;
+      width: 100%;
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar { background: var(--light-bg); border-bottom: 1px solid var(--border); padding: 16px 20px; }
+    .trust-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px 32px;
+    }
+    .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--text); white-space: nowrap; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 56px 20px; }
+    .section-alt { background: var(--light-bg); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { text-align: center; font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+    .section-title { text-align: center; font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: var(--navy); margin-bottom: 10px; letter-spacing: -0.02em; line-height: 1.2; }
+    .section-sub { text-align: center; font-size: 16px; color: var(--text-muted); max-width: 560px; margin: 0 auto 40px; line-height: 1.6; }
+
+    /* ── BENEFITS ── */
+    .benefits-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media (min-width: 640px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .benefits-grid { grid-template-columns: repeat(3, 1fr); } }
+    .benefit-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px 22px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .benefit-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .benefit-icon { font-size: 34px; margin-bottom: 12px; }
+    .benefit-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .benefit-text { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── OFFER BANNER ── */
+    .offer-banner { background: linear-gradient(135deg, var(--navy) 0%, #1e3a8a 100%); color: #fff; padding: 48px 20px; text-align: center; }
+    .offer-tag { display: inline-block; background: var(--orange); color: #fff; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .offer-headline { font-size: clamp(30px, 5vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+    .offer-headline span { color: var(--orange); }
+    .offer-sub { font-size: 18px; color: #93c5fd; margin: 10px 0 4px; }
+    .offer-fine { font-size: 12px; color: #94a3b8; margin-bottom: 28px; }
+    .btn-offer {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-offer:hover { background: var(--orange-dark); }
+
+    /* ── HOW IT WORKS ── */
+    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+    @media (min-width: 768px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } }
+    .step-card { text-align: center; }
+    .step-number {
+      width: 52px; height: 52px;
+      background: var(--orange);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 800;
+      margin: 0 auto 16px;
+    }
+    .step-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step-text { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── AWARDS ── */
+    .awards-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 36px; margin-top: 32px; }
+    .award-item { text-align: center; flex: 0 0 140px; }
+    .award-box { background: var(--navy); color: #fff; border-radius: 12px; padding: 16px; margin-bottom: 8px; }
+    .award-box-icon { font-size: 26px; display: block; margin-bottom: 4px; }
+    .award-box-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .award-caption { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+    /* ── REVIEWS ── */
+    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media (min-width: 640px) { .reviews-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+    .review-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+    .review-stars { color: #f59e0b; font-size: 15px; margin-bottom: 10px; }
+    .review-text { font-size: 14px; color: var(--text); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 10px; }
+    .review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .review-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .review-meta { font-size: 12px; color: var(--text-muted); }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 32px auto 0; }
+    details.faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+    details.faq-item summary {
+      padding: 18px 20px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--navy);
+      background: #fff;
+    }
+    details.faq-item summary:hover { background: var(--light-bg); }
+    details.faq-item summary::after { content: '+'; font-size: 22px; color: var(--text-muted); }
+    details.faq-item[open] summary::after { content: '−'; }
+    details.faq-item .faq-answer { padding: 0 20px 18px; font-size: 14px; color: var(--text-muted); line-height: 1.7; background: #fff; }
+
+    /* ── STICKY PHONE ── */
+    /* ZIP CHECKER: visibility controlled by checkZipByIP() */
+    .sticky-phone { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: none; }
+    .sticky-phone-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(22,163,74,0.4);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sticky-phone-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(22,163,74,0.5); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--navy); color: #94a3b8; padding: 32px 20px; text-align: center; font-size: 12px; line-height: 1.7; }
+    .footer a { color: #93c5fd; }
+    .footer-links { margin-bottom: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .footer-disclaimer { margin-top: 12px; max-width: 680px; margin-left: auto; margin-right: auto; opacity: 0.8; }
+  </style>
+</head>
+<body>
+
+  <!-- PROMO BAR -->
+  <div class="promo-bar">
+    🔒 Limited Time: <strong>Free Equipment + Up to 6 Months Free Monitoring</strong> — See If You Qualify →
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">Home<span>IQ</span></div>
+    <div class="nav-phone">
+      <!-- PHONE NUMBER PLACEHOLDER -->
+      📞 <a href="tel:+18005550000" style="color:#fff;">(800) 555-0000</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <div>
+        <div class="hero-badge">Special Offer — Limited Time</div>
+        <h1>Professional Home Security.<br><em>Real Humans. 24/7.</em></h1>
+        <p class="hero-sub">
+          Get matched with top-rated security providers in your area. Free professional installation available — see your options in 60 seconds.
+        </p>
+        <ul class="hero-bullets">
+          <li>Free HD security camera with qualifying system</li>
+          <li>Professional installation — $0 upfront</li>
+          <li>24/7 live monitoring by trained professionals</li>
+          <li>No obligation. No spam. Cancel anytime.</li>
+        </ul>
+      </div>
+
+      <!-- LEAD FORM -->
+      <div class="form-card">
+        <div class="form-card-title">Check Availability</div>
+        <div class="form-card-sub">Free quote · Takes 60 seconds · No obligation</div>
+
+        <form id="lead-form" onsubmit="return handleSubmit(event)">
+          <div class="form-group">
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" name="zip" placeholder="e.g. 90210" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" required autocomplete="postal-code">
+          </div>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required autocomplete="tel">
+          </div>
+          <button type="submit" class="btn-primary">Get My Free Quote →</button>
+        </form>
+
+        <p class="form-disclaimer">
+          By submitting, you agree to our <a href="#">Terms</a> & <a href="#">Privacy Policy</a>.
+          We connect you with licensed providers. No spam.
+        </p>
+
+        <!-- PHONE CTA — shown by zip checker when in service area -->
+        <div class="phone-section" id="phone-section">
+          <p>Prefer to call? Speak with a specialist now.</p>
+          <a href="tel:+18005550000" class="btn-phone">
+            📞 (800) 555-0000
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item">⭐ 4.8/5 (2,400+ reviews)</div>
+      <div class="trust-item">🏆 BBB Accredited</div>
+      <div class="trust-item">🔒 Licensed &amp; Insured</div>
+      <div class="trust-item">👤 24/7 Professional Monitoring</div>
+      <div class="trust-item">✅ No Obligation</div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">What's Included</div>
+      <h2 class="section-title">Everything You Need.<br>Nothing You Don't.</h2>
+      <p class="section-sub">Professional-grade protection with free setup. Here's what comes with every system.</p>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🎁</div>
+          <div class="benefit-title">Free Equipment</div>
+          <div class="benefit-text">Get a complete system — cameras, sensors, control panel — at no upfront cost with a qualifying monitoring plan.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔧</div>
+          <div class="benefit-title">Free Professional Install</div>
+          <div class="benefit-text">Experts handle everything from wiring to app setup. Your system works perfectly from day one — no DIY.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">👤</div>
+          <div class="benefit-title">Real Humans, 24/7</div>
+          <div class="benefit-text">Trained professionals monitor your home around the clock and contact emergency services the moment something triggers.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📱</div>
+          <div class="benefit-title">Full App Control</div>
+          <div class="benefit-text">Manage locks, cameras, lights, and thermostat from anywhere in real time — all from one app.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💳</div>
+          <div class="benefit-title">Flexible Plans</div>
+          <div class="benefit-text">Plans from $19/month. Financing available. No large upfront payment — get protected today without breaking the budget.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <div class="benefit-title">Satisfaction Guaranteed</div>
+          <div class="benefit-text">If something isn't right, we fix it — repair, replace, or refund. Your protection is backed by a full service guarantee.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER BANNER -->
+  <div class="offer-banner">
+    <div class="container">
+      <div class="offer-tag">Limited Time Offer</div>
+      <div class="offer-headline">Up to <span>6 Months</span> Free Monitoring</div>
+      <div style="font-size:clamp(18px,2.5vw,26px); font-weight:600; color:#fff; margin-top:6px;">+ Free HD Security Camera</div>
+      <p class="offer-sub">With any new professionally monitored system</p>
+      <p class="offer-fine">*With qualifying system purchase. Limited time. See terms for details.</p>
+      <button class="btn-offer" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">
+        Check Availability in My Area →
+      </button>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-label">Simple Process</div>
+      <h2 class="section-title">Protected in 3 Steps</h2>
+      <p class="section-sub">From first click to fully secured — most installs complete within 24 hours.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-title">Enter Your ZIP Code</div>
+          <div class="step-text">We check which providers and offers are available in your exact area. Takes 10 seconds.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-title">Get Your Custom Quote</div>
+          <div class="step-text">A specialist reviews your home's needs and builds a system that fits — no generic packages.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-title">Get Installed Today</div>
+          <div class="step-text">Pro installers come to your home and set everything up. You don't lift a finger. Done in under 2 hours.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS / TRUST -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">As Recognized By</div>
+      <h2 class="section-title">"Best for Professional Home Monitoring"</h2>
+      <p class="section-sub">Trusted by experts. Chosen by over 6 million homeowners across the US.</p>
+      <div class="awards-row">
+        <div class="award-item">
+          <div class="award-box"><span class="award-box-icon">📰</span><div class="award-box-title">Newsweek</div></div>
+          <div class="award-caption">America's Best Customer Service 2025</div>
+        </div>
+        <div class="award-item">
+          <div class="award-box"><span class="award-box-icon">💻</span><div class="award-box-title">PCMag</div></div>
+          <div class="award-caption">Best Smart Home Security 2026</div>
+        </div>
+        <div class="award-item">
+          <div class="award-box"><span class="award-box-icon">💰</span><div class="award-box-title">NerdWallet</div></div>
+          <div class="award-caption">Best for Professional Monitoring</div>
+        </div>
+        <div class="award-item">
+          <div class="award-box"><span class="award-box-icon">🏅</span><div class="award-box-title">BBB</div></div>
+          <div class="award-caption">A+ Accredited Business Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-label">Real Customers</div>
+      <h2 class="section-title">What Homeowners Are Saying</h2>
+      <p class="section-sub" style="margin-bottom:32px;">4.8★ across 2,400+ verified reviews</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The installation was clean and well thought out. Cameras were placed where they actually matter. The app is easy to use and we check it every day."</p>
+          <div class="review-author">
+            <div class="review-avatar">LH</div>
+            <div><div class="review-name">Lauren H.</div><div class="review-meta">Verified · 2 months ago</div></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I used to worry constantly about break-ins. Now I sleep soundly knowing real professionals are watching my home — not just an automated app."</p>
+          <div class="review-author">
+            <div class="review-avatar">MW</div>
+            <div><div class="review-name">Mia W.</div><div class="review-meta">Verified · 1 month ago</div></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Free installation, free camera, and the whole system was up and running the same day. Couldn't believe how smooth the entire process was."</p>
+          <div class="review-author">
+            <div class="review-avatar">KR</div>
+            <div><div class="review-name">Kevin R.</div><div class="review-meta">Verified · 3 weeks ago</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What's included in the free equipment offer?</summary>
+          <p class="faq-answer">The free equipment typically includes a control panel, door/window sensors, motion detectors, and at least one HD security camera — depending on your qualifying plan. A specialist will confirm exactly what's included for your home.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does professional installation take?</summary>
+          <p class="faq-answer">Most installations are completed in under 2 hours. Our installers handle everything — equipment placement, wiring, app setup, and a full walkthrough so you know exactly how your system works.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a contract required?</summary>
+          <p class="faq-answer">Some plans include a service agreement (typically 36 months) which is what allows free equipment and installation. Shorter and no-contract options are also available. A specialist will walk you through all options — no pressure.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does 24/7 professional monitoring actually mean?</summary>
+          <p class="faq-answer">It means real trained professionals — not automated systems — monitoring your sensors around the clock. If an alarm triggers, they verify the threat and contact emergency services on your behalf, even if you can't be reached.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I add more devices later?</summary>
+          <p class="faq-answer">Yes. All systems are fully expandable. Start with basic coverage and add cameras, smart locks, garage sensors, or a thermostat at any time — no reinstall required.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <div class="offer-banner">
+    <div class="container">
+      <h2 style="font-size:clamp(24px,4vw,38px); font-weight:800; margin-bottom:8px;">Ready to Protect Your Home?</h2>
+      <p style="color:#93c5fd; margin-bottom:24px; font-size:16px;">Takes 60 seconds. Free quote. No obligation.</p>
+      <button class="btn-offer" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">
+        Get My Free Quote →
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+    <p>© 2026 HomeIQ. All rights reserved.</p>
+    <p class="footer-disclaimer">
+      HomeIQ is a referral service connecting homeowners with licensed security providers. We do not perform services directly. Always verify contractor licenses and insurance. Offers subject to availability and qualifying system purchase. *With qualifying system purchase. Limited time offer. See terms for full details.
+    </p>
+  </footer>
+
+  <!-- STICKY PHONE BUTTON -->
+  <!-- ZIP CHECKER: visibility controlled by checkZipByIP() below -->
+  <div class="sticky-phone" id="sticky-phone">
+    <a href="tel:+18005550000" class="sticky-phone-btn">
+      📞 (800) 555-0000
+    </a>
+  </div>
+
+  <script>
+    // ============================================================
+    // ZIP CHECKER — IP-based service area validation
+    // @Vladyslav: hook this into your zip validation API
+    //
+    // Logic:
+    //   1. On page load → get user IP → resolve to ZIP
+    //   2. Check ZIP against service area list
+    //   3. If valid → showPhoneButton()
+    //   4. If not in service area → hidePhoneButton()
+    //
+    // Implementation example:
+    //   fetch('https://ipapi.co/json/')
+    //     .then(r => r.json())
+    //     .then(data => {
+    //       const zip = data.postal;
+    //       if (isInServiceArea(zip)) showPhoneButton();
+    //       else hidePhoneButton();
+    //       // Optional: auto-fill zip field
+    //       document.getElementById('zip').value = zip || '';
+    //     });
+    // ============================================================
+
+    function showPhoneButton() {
+      document.getElementById('sticky-phone').style.display = 'block';
+      document.getElementById('phone-section').style.display = 'block';
+    }
+
+    function hidePhoneButton() {
+      document.getElementById('sticky-phone').style.display = 'none';
+      document.getElementById('phone-section').style.display = 'none';
+    }
+
+    // TODO: replace with real zip checker
+    // For development: show button always
+    document.addEventListener('DOMContentLoaded', function() {
+      showPhoneButton();
+    });
+
+    // ── FORM SUBMIT ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const data = {
+        zip:   document.getElementById('zip').value,
+        name:  document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+      };
+      // TODO: POST to your lead API / buyer endpoint
+      console.log('Lead data:', data);
+      alert('Thank you! A specialist will contact you shortly.');
+      return false;
+    }
+
+    // ── PHONE MASK ──
+    document.getElementById('phone').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '').substring(0, 10);
+      if (v.length >= 6) v = '(' + v.substring(0,3) + ') ' + v.substring(3,6) + '-' + v.substring(6);
+      else if (v.length >= 3) v = '(' + v.substring(0,3) + ') ' + v.substring(3);
+      e.target.value = v;
+    });
+  </script>
+
+</body>
+</html>
