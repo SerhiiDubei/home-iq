@@ -28,7 +28,7 @@
     .page { max-width:600px; margin:0 auto; padding:20px 16px 96px; }
 
     .hero__headline { color:var(--ink); font-size:26px; font-weight:600; line-height:1.25; text-align:center; margin-bottom:18px; }
-    .hero__image { width:100%; aspect-ratio:16/9; border-radius:15px; object-fit:cover; display:block; margin-bottom:22px; border:1px solid #dfe6ff; }
+    .hero__image { width:100%; aspect-ratio:21/9; max-height:200px; border-radius:12px; object-fit:cover; display:block; margin:0 0 22px; border:1px solid #dfe6ff; }
 
     .zip-form {
       display:grid; grid-template-columns:1fr auto; gap:8px;
@@ -98,8 +98,6 @@
       Homeowners Get Huge Relief Remodeling Their Bathrooms With New 2026 Services — Saving Homeowners Thousands
     </h1>
 
-    <img class="hero__image" src="../../_assets/hero/hero-10.webp" alt="Newly remodeled walk-in shower with sliding glass door" loading="eager" width="1280" height="720">
-
     <form class="zip-form" id="zipForm" novalidate>
       <input class="zip-form__input" type="text" inputmode="numeric" maxlength="5" pattern="\d{5}"
              placeholder="Enter your ZIP" aria-label="ZIP code" id="zipInput" autocomplete="postal-code" required>
@@ -114,6 +112,8 @@
       <div class="trust-bar__cell"><span class="trust-bar__top">✓</span>Licensed<br>&amp; Insured</div>
       <div class="trust-bar__cell"><span class="trust-bar__top">⏱</span>1-Day<br>Install</div>
     </div>
+
+    <img class="hero__image" src="../../_assets/hero/hero-10.webp" alt="Newly remodeled walk-in shower with sliding glass door" loading="eager" width="1280" height="720">
 
     <p class="note">
       Home IQ connects homeowners with independent, licensed remodelers. Bathrooms are not free — you are
