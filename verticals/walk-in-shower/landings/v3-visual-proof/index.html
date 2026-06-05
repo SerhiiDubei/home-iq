@@ -28,10 +28,10 @@
     .hero__sub{text-align:center;font-size:15px;color:var(--body);margin-bottom:18px;}
 
     /* Before / After slider */
-    .ba{position:relative;width:100%;aspect-ratio:4/3;border-radius:15px;overflow:hidden;user-select:none;box-shadow:0 4px 18px rgba(17,24,39,.12);}
-    .ba__img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;}
-    .ba__after{background:linear-gradient(135deg,#dbe7ff,#bcd0ff);color:var(--brand-dark);}
-    .ba__before{background:linear-gradient(135deg,#d7d2c7,#b3aa99);color:#5a5346;clip-path:inset(0 50% 0 0);}
+    .ba{position:relative;width:100%;aspect-ratio:16/9;max-height:260px;border-radius:14px;overflow:hidden;user-select:none;box-shadow:0 4px 18px rgba(17,24,39,.12);}
+    .ba__img{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;}
+    .ba__after{background-image:url('../_assets/before-after/after-01.webp');}
+    .ba__before{background-image:url('../_assets/before-after/before-01.webp');clip-path:inset(0 50% 0 0);}
     .ba__tag{position:absolute;top:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(17,24,39,.6);padding:4px 10px;border-radius:20px;}
     .ba__tag--before{left:12px;} .ba__tag--after{right:12px;}
     .ba__range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;}
@@ -87,8 +87,8 @@
     <p class="hero__sub">Drag the slider to see a real tub-to-shower conversion.</p>
 
     <div class="ba" id="ba">
-      <div class="ba__img ba__after">AFTER</div>
-      <div class="ba__img ba__before" id="baBefore">BEFORE</div>
+      <div class="ba__img ba__after" role="img" aria-label="After: clean marble walk-in shower"></div>
+      <div class="ba__img ba__before" id="baBefore" role="img" aria-label="Before: dated bathroom with old tub"></div>
       <span class="ba__tag ba__tag--before">Before</span>
       <span class="ba__tag ba__tag--after">After</span>
       <div class="ba__handle" id="baHandle"></div>

@@ -49,6 +49,7 @@
     /* Result screens */
     .result{display:none;text-align:center;}
     .result.is-active{display:block;animation:fade .3s ease;}
+    .result__img{width:100%;aspect-ratio:21/9;max-height:180px;object-fit:cover;border-radius:12px;margin-bottom:14px;border:1px solid #dfe6ff;}
     .result__icon{font-size:46px;margin-bottom:8px;}
     .result__title{color:var(--ink);font-size:23px;font-weight:700;margin-bottom:8px;}
     .result__text{font-size:15px;color:var(--body);margin-bottom:20px;}
@@ -109,6 +110,7 @@
 
       <!-- Result: qualified -->
       <div class="result" id="resultQualified">
+        <img class="result__img" src="../_assets/hero/hero-15.webp" alt="Newly remodeled walk-in shower" loading="lazy" width="1280" height="720">
         <div class="result__icon">🎉</div>
         <p class="result__title">Great news — you may qualify!</p>
         <p class="result__text">Based on your answers, your home looks like a match for the 2026 walk-in shower program. Get your free, no-obligation quote now.</p>
