@@ -25,6 +25,8 @@
     .tag--minor   { background:#f3f4f6; color:#374151; }
     .tag--midi    { background:#ecfeff; color:#0e7490; }
     .tag--styled  { background:#fef3c7; color:#854d0e; }
+    .card__preview { display:block; width:100%; height:200px; object-fit:cover; object-position:top; border-radius:8px; margin:-4px 0 12px; border:1px solid #e6e6e6; background:#f7f7f7; }
+    .card--minor .card__preview { height:170px; margin:-2px 0 10px; }
     .card h2 { font-size:18px; margin-bottom:6px; }
     .card .lever { font-size:13px; font-weight:600; color:#2563eb; margin-bottom:8px; }
     .card p { font-size:13px; color:#374151; }
@@ -50,6 +52,7 @@
 
     <div class="grid">
       <a class="card" href="baseline/index.html">
+        <img class="card__preview" src="_assets/previews/preview-baseline.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--control">A/B Control</span>
         <h2>baseline</h2>
         <div class="lever">Faithful rebuild</div>
@@ -58,6 +61,7 @@
       </a>
 
       <a class="card" href="v1-trust-offer/index.html">
+        <img class="card__preview" src="_assets/previews/preview-v1.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--offer">Lever: Trust + Offer</span>
         <h2>v1 · trust-offer</h2>
         <div class="lever">Grounded offer &amp; credibility</div>
@@ -66,6 +70,7 @@
       </a>
 
       <a class="card" href="v2-interactive-quiz/index.html">
+        <img class="card__preview" src="_assets/previews/preview-v2.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--quiz">Lever: Interaction</span>
         <h2>v2 · interactive-quiz</h2>
         <div class="lever">Step-by-step quiz + progress</div>
@@ -74,6 +79,7 @@
       </a>
 
       <a class="card" href="v3-visual-proof/index.html">
+        <img class="card__preview" src="_assets/previews/preview-v3.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--visual">Lever: Visual proof</span>
         <h2>v3 · visual-proof</h2>
         <div class="lever">Before/after + benefits</div>
@@ -92,6 +98,7 @@
 
     <div class="grid grid--minor">
       <a class="card card--minor" href="minor/m1-cta-benefit-copy/index.html">
+        <img class="card__preview" src="_assets/previews/preview-m1.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--minor">m1 · CTA copy</span>
         <h2>Benefit-driven CTA</h2>
         <div class="lever">"Check My 2026 Discounts"</div>
@@ -100,6 +107,7 @@
       </a>
 
       <a class="card card--minor" href="minor/m2-headline-urgency/index.html">
+        <img class="card__preview" src="_assets/previews/preview-m2.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--minor">m2 · Urgency</span>
         <h2>Headline urgency pill</h2>
         <div class="lever">"Limited spots in your area"</div>
@@ -108,6 +116,7 @@
       </a>
 
       <a class="card card--minor" href="minor/m3-trust-bar/index.html">
+        <img class="card__preview" src="_assets/previews/preview-m3.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--minor">m3 · Trust bar</span>
         <h2>4-cell trust strip</h2>
         <div class="lever">4.9★ · BBB A+ · Licensed · 1-Day</div>
@@ -116,6 +125,7 @@
       </a>
 
       <a class="card card--minor" href="minor/m4-zip-first/index.html">
+        <img class="card__preview" src="_assets/previews/preview-m4.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--minor">m4 · ZIP-first</span>
         <h2>ZIP capture in hero</h2>
         <div class="lever">Input + button → funnel?zip=</div>
@@ -124,6 +134,7 @@
       </a>
 
       <a class="card card--minor" href="minor/m5-stars-compress/index.html">
+        <img class="card__preview" src="_assets/previews/preview-m5.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--minor">m5 · Stars compress</span>
         <h2>Aggregate rating + 2</h2>
         <div class="lever">4.9 / 12,847 + 2 short reviews</div>
@@ -142,6 +153,7 @@
 
     <div class="grid grid--minor">
       <a class="card card--minor" href="midi/midi-1-trust-offer-lite/index.html">
+        <img class="card__preview" src="_assets/previews/preview-midi-1.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--midi">midi-1 · trust + offer</span>
         <h2>$1,500 grounded offer</h2>
         <div class="lever">CTA + trust bar + photo</div>
@@ -150,6 +162,7 @@
       </a>
 
       <a class="card card--minor" href="midi/midi-2-urgent-hero/index.html">
+        <img class="card__preview" src="_assets/previews/preview-midi-2.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--midi">midi-2 · urgent hero</span>
         <h2>Urgency + action CTA</h2>
         <div class="lever">Pill + "Claim My Spot" + photo</div>
@@ -158,6 +171,7 @@
       </a>
 
       <a class="card card--minor" href="midi/midi-3-social-first/index.html">
+        <img class="card__preview" src="_assets/previews/preview-midi-3.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--midi">midi-3 · social-first</span>
         <h2>Rating above headline</h2>
         <div class="lever">4.9★ first + benefit CTA + photo</div>
@@ -166,6 +180,7 @@
       </a>
 
       <a class="card card--minor" href="midi/midi-4-zip-trust/index.html">
+        <img class="card__preview" src="_assets/previews/preview-midi-4.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--midi">midi-4 · ZIP + trust</span>
         <h2>ZIP capture + trust</h2>
         <div class="lever">ZIP input + trust bar + photo</div>
@@ -174,6 +189,7 @@
       </a>
 
       <a class="card card--minor" href="midi/midi-5-benefit-stack/index.html">
+        <img class="card__preview" src="_assets/previews/preview-midi-5.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--midi">midi-5 · benefit stack</span>
         <h2>Why-now 3-bullet block</h2>
         <div class="lever">Benefits + new CTA + photo</div>
@@ -192,6 +208,7 @@
 
     <div class="grid grid--minor">
       <a class="card card--minor" href="styled/styled-1-editorial/index.html">
+        <img class="card__preview" src="_assets/previews/preview-styled-1.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--styled">styled-1 · editorial</span>
         <h2>Minimal serif</h2>
         <div class="lever">NYT-style. Restrained, narrow column.</div>
@@ -200,6 +217,7 @@
       </a>
 
       <a class="card card--minor" href="styled/styled-2-bold/index.html">
+        <img class="card__preview" src="_assets/previews/preview-styled-2.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--styled">styled-2 · bold</span>
         <h2>Direct &amp; loud</h2>
         <div class="lever">Anton display, electric green + black.</div>
@@ -208,6 +226,7 @@
       </a>
 
       <a class="card card--minor" href="styled/styled-3-pastel/index.html">
+        <img class="card__preview" src="_assets/previews/preview-styled-3.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--styled">styled-3 · pastel</span>
         <h2>Soft modern</h2>
         <div class="lever">Mint + blush gradient. Linear/Notion feel.</div>
@@ -216,6 +235,7 @@
       </a>
 
       <a class="card card--minor" href="styled/styled-4-dark/index.html">
+        <img class="card__preview" src="_assets/previews/preview-styled-4.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--styled">styled-4 · dark</span>
         <h2>Premium / by-application</h2>
         <div class="lever">Black BG, gold accent, light serif headlines.</div>
@@ -224,6 +244,7 @@
       </a>
 
       <a class="card card--minor" href="styled/styled-5-retro/index.html">
+        <img class="card__preview" src="_assets/previews/preview-styled-5.webp" alt="" loading="lazy" width="300" height="533">
         <span class="tag tag--styled">styled-5 · retro</span>
         <h2>Warm &amp; friendly</h2>
         <div class="lever">Cream BG, chunky Fraunces serif with shadow.</div>
