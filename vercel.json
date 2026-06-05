@@ -2,12 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
   "trailingSlash": true,
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/verticals/home-security/landings/INDEX.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",

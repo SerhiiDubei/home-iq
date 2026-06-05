@@ -32,3 +32,20 @@ build/
 .cache/
 
 .vercel
+
+# HomeIQ Photo Bank — only the toolkit code is checked in.
+# Python venv (~400MB), scraped photo bank (~70MB), and generated
+# indexes are per-machine and easy to regenerate via the toolkit's
+# discover.bat / classify.bat / scripts/export_hero.py.
+_tools/homeiq-photobank/venv/
+_tools/homeiq-photobank/data/
+_tools/homeiq-photobank/photos.db
+_tools/homeiq-photobank/photos.json
+_tools/homeiq-photobank/gallery.html
+_tools/homeiq-photobank/__pycache__/
+_tools/homeiq-photobank/**/__pycache__/
+_tools/homeiq-photobank/.pytest_cache/
+_tools/homeiq-photobank/logs/
+
+# _inbox is a scratch zone for unzipping deliverables — never commit
+verticals/*/_inbox/

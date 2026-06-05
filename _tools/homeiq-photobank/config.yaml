@@ -1,0 +1,121 @@
+storage:
+  base_dir: "E:/Work Stuff/Home IQ/_tools/homeiq-photobank"
+  data_dir: "data"
+  import_dir: "data/_import"
+  generated_dir: "generated"
+  models_dir: "models"
+  db_path: "photos.db"
+
+exclude_domains:
+  # stock / aggregator / social — not contractor landing pages
+  - pinterest.com
+  - houzz.com
+  - shutterstock.com
+  - gettyimages.com
+  - istockphoto.com
+  - unsplash.com
+  - pexels.com
+  - dreamstime.com
+  - alamy.com
+  - reddit.com
+  - youtube.com
+  - instagram.com
+  - facebook.com
+  - twitter.com
+  - tiktok.com
+  - yelp.com
+  - angi.com
+  - thumbtack.com
+  - homeadvisor.com
+  - homedepot.com
+  - lowes.com
+  - amazon.com
+  - wayfair.com
+  - wikipedia.org
+  - wikimedia.org
+  # design / stock / creative platforms
+  - freepik.com
+  - canva.com
+  - behance.net
+  - vecteezy.com
+  - dribbble.com
+  - flickr.com
+  - deviantart.com
+  - 123rf.com
+  - depositphotos.com
+  - stocksy.com
+  # review / directory sites
+  - bbb.org
+  - angieslist.com
+  - nextdoor.com
+  - google.com
+  - bing.com
+  - duckduckgo.com
+  # news / media / review publishers
+  - forbes.com
+  - cnet.com
+  - techradar.com
+  - businessinsider.com
+  - thespruce.com
+  - bobvila.com
+  - thisoldhouse.com
+  - familyhandyman.com
+  - consumerreports.org
+  - popularmechanics.com
+  - houselogic.com
+
+niches:
+  - bathroom
+  - flooring
+  - hvac
+  - security
+  - shower
+  - siding
+  - gutter
+  - home_warranty
+  - kitchen
+  - plumbing
+  - roof
+  - solar
+  - walk_in_tubs
+
+sections:
+  - before_after
+  - hero
+  - project
+  - finished
+  - unknown
+
+crawler:
+  max_concurrent_downloads: 10
+  timeout_seconds: 30
+  min_file_bytes: 500
+  max_file_bytes: 10485760   # 10MB
+  min_dimension_px: 100
+  allowed_formats: [jpg, jpeg, png, webp]
+  rescrape_interval_days: 7
+  max_pages: 100
+  request_delay: 1.5
+  tier1_timeout: 30
+  tier2_timeout: 45
+  tier3_timeout: 90
+
+discovery:
+  brave_api_key: ""          # або встанови змінну BRAVE_API_KEY
+  max_sites: 10              # hard cap незалежно від --sites
+  skip_crawled_domains: true # пропускати домени вже в БД
+  max_queries_per_day: 50
+  delay_between_requests_seconds: 5
+
+classifier:
+  openrouter_api_key: ""          # або env var OPENROUTER_API_KEY
+  model: "google/gemini-2.5-flash"
+  fallback_model: "google/gemini-2.5-flash"
+  max_concurrent: 5
+  retry_attempts: 3
+  cost_per_image_usd: 0.0001
+
+reddit:
+  client_id: ""
+  client_secret: ""
+  user_agent: "HomeIQ/1.0"

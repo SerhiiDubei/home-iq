@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+  Styled variant 1 — Editorial Minimal.
+  Voice: journalistic, restrained, no exclamations.
+  Look: serif headlines, sans body, off-white BG, narrow 540px column, outline CTA.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home IQ — A Walk-In Shower, Installed in a Day</title>
+  <meta name="description" content="A walk-in shower, installed in a day. Free design quote. 12,847 homeowners said yes last year.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --ink:#1a1a1a; --body:#3d3d3d; --muted:#6b6b6b;
+      --bg:#fafaf7; --rule:#1a1a1a; --soft:#e8e6e0;
+      --serif:'Source Serif 4', Georgia, serif;
+      --sans:'Inter', -apple-system, sans-serif;
+    }
+    body { font-family:var(--sans); color:var(--body); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; }
+    .page { max-width:540px; margin:0 auto; padding:24px 20px 96px; }
+
+    .wordmark { font-family:var(--serif); font-weight:700; font-size:14px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink); margin-bottom:32px; padding-bottom:14px; border-bottom:1px solid var(--ink); }
+    .wordmark__sub { font-family:var(--sans); font-weight:500; color:var(--muted); letter-spacing:.06em; margin-left:10px; }
+
+    .kicker { font-family:var(--sans); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:14px; }
+
+    h1 { font-family:var(--serif); font-weight:600; font-size:36px; line-height:1.15; color:var(--ink); margin-bottom:14px; letter-spacing:-.01em; }
+    .lede { font-size:17px; color:var(--body); margin-bottom:26px; font-weight:400; }
+
+    .hero-photo { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; margin-bottom:24px; filter:saturate(.92); }
+
+    .cta {
+      display:inline-flex; align-items:center; gap:10px;
+      background:transparent; color:var(--ink);
+      border:1.5px solid var(--ink); border-radius:0;
+      font-family:var(--sans); font-weight:600; font-size:15px;
+      padding:14px 22px; text-decoration:none;
+      transition:background .2s, color .2s;
+      letter-spacing:.02em;
+    }
+    .cta:hover { background:var(--ink); color:var(--bg); }
+    .cta__arrow { font-size:18px; line-height:1; }
+
+    .meta { font-size:13px; color:var(--muted); margin-top:14px; }
+
+    hr { border:none; border-top:1px solid var(--soft); margin:36px 0 24px; }
+
+    .qual { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+    .qual__row { display:flex; gap:12px; align-items:baseline; font-size:15px; color:var(--ink); }
+    .qual__row::before { content:""; flex:0 0 6px; height:6px; background:var(--ink); border-radius:50%; transform:translateY(-3px); }
+
+    .pull {
+      font-family:var(--serif); font-style:italic; font-size:19px; line-height:1.4;
+      color:var(--ink); border-left:2px solid var(--ink); padding:6px 0 6px 16px; margin-bottom:14px;
+    }
+    .pull__attr { display:block; font-family:var(--sans); font-style:normal; font-size:12px; font-weight:500; color:var(--muted); margin-top:8px; letter-spacing:.04em; text-transform:uppercase; }
+
+    .footer-note { font-size:11px; color:var(--muted); margin-top:32px; line-height:1.5; }
+
+    .variant-nav { position:fixed; bottom:0; left:0; right:0; background:var(--bg); border-top:1px solid var(--ink); display:flex; justify-content:space-between; align-items:center; padding:12px 16px; font-size:12px; font-family:var(--sans); letter-spacing:.04em; z-index:10; }
+    .variant-nav a { color:var(--ink); text-decoration:none; font-weight:600; text-transform:uppercase; }
+    .variant-nav .label { color:var(--muted); font-weight:500; text-transform:uppercase; }
+
+    @media (max-width:480px) { h1 { font-size:30px; } .page { padding:20px 18px 96px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="wordmark">Home IQ <span class="wordmark__sub">/ Walk-In Showers</span></div>
+
+    <div class="kicker">2026 Program</div>
+    <h1>A walk-in shower,<br>installed in a day.</h1>
+    <p class="lede">Free design quote. No pressure. <strong>12,847 homeowners</strong> said yes last year.</p>
+
+    <img class="hero-photo" src="../../_assets/hero/hero-12.webp" alt="Newly installed walk-in shower" loading="eager" width="1280" height="720">
+
+    <a class="cta pb-track-link" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">
+      Check My Options <span class="cta__arrow" aria-hidden="true">→</span>
+    </a>
+    <p class="meta">Takes about 60 seconds. No phone call required.</p>
+
+    <hr>
+
+    <div class="kicker">Who Qualifies</div>
+    <div class="qual">
+      <div class="qual__row">You own your home.</div>
+      <div class="qual__row">Your home is more than five years old.</div>
+      <div class="qual__row">You live in the United States.</div>
+    </div>
+
+    <div class="kicker">From the Reviews</div>
+    <blockquote class="pull">
+      "The team finished early. The bathroom looks like a designer planned it."
+      <span class="pull__attr">— Laura Henderson · Scottsdale, AZ</span>
+    </blockquote>
+    <blockquote class="pull">
+      "Their quote beat every competitor. The quality still feels premium."
+      <span class="pull__attr">— Michelle Carver · Albany, NY</span>
+    </blockquote>
+
+    <p class="footer-note">
+      Home IQ connects homeowners with independent, licensed remodelers. Quotes are free and no-obligation; project pricing varies and is set by the installer.
+    </p>
+  </main>
+
+  <nav class="variant-nav" aria-label="Variant navigator">
+    <a href="../../INDEX.html">← Index</a>
+    <span class="label">styled-1 · editorial (1 / 5)</span>
+    <a href="../styled-2-bold/index.html">styled-2 →</a>
+  </nav>
+</body>
+</html>

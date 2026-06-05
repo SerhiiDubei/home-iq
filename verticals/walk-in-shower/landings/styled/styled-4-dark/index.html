@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+  Styled variant 4 — Dark Premium.
+  Voice: exclusive, by-application, restrained luxury.
+  Look: deep black BG, gold accent, monospace micro-labels, thin gold dividers, light-weight headlines.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home IQ — Premium Walk-In Showers, By Application</title>
+  <meta name="description" content="Premium walk-in showers, expertly installed. Hand-picked installers in your area. Apply for a 2026 spot.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --bg:#0a0a0b; --bg-card:#141416;
+      --ink:#f5f3ee; --body:#b8b4ac; --muted:#6e6a62;
+      --gold:#c9a856; --gold-dark:#9a7e3b; --gold-soft:rgba(201,168,86,.16);
+      --line:rgba(201,168,86,.22);
+      --display:'Cormorant Garamond', Georgia, serif;
+      --mono:'JetBrains Mono', ui-monospace, monospace;
+      --sans:'Inter', -apple-system, sans-serif;
+    }
+    body { font-family:var(--sans); color:var(--body); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; min-height:100vh; }
+    .page { max-width:580px; margin:0 auto; padding:28px 20px 110px; }
+
+    .brand { display:flex; align-items:center; justify-content:space-between; margin-bottom:36px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+    .brand__name { font-family:var(--display); font-weight:500; font-size:18px; color:var(--ink); letter-spacing:.04em; }
+    .brand__app { font-family:var(--mono); font-size:10px; color:var(--gold); letter-spacing:.18em; text-transform:uppercase; }
+
+    .kicker { font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; display:flex; align-items:center; gap:8px; }
+    .kicker::before { content:""; width:18px; height:1px; background:var(--gold); }
+
+    h1 { font-family:var(--display); font-weight:300; font-size:44px; line-height:1.1; color:var(--ink); margin-bottom:16px; letter-spacing:-.005em; }
+    h1 em { font-style:italic; color:var(--gold); font-weight:400; }
+    .lede { font-size:16px; color:var(--body); margin-bottom:28px; font-weight:300; line-height:1.6; }
+
+    .hero-photo { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; margin-bottom:26px; filter:saturate(.85) contrast(1.02); border:1px solid var(--line); }
+
+    .cta {
+      display:flex; align-items:center; justify-content:center; gap:12px;
+      width:100%; background:transparent; color:var(--gold);
+      border:1px solid var(--gold); border-radius:0;
+      font-family:var(--sans); font-weight:500; font-size:14px;
+      padding:18px 22px; text-decoration:none;
+      text-transform:uppercase; letter-spacing:.18em;
+      transition:background .25s, color .25s;
+    }
+    .cta:hover { background:var(--gold); color:var(--bg); }
+    .cta__sub { text-align:center; font-family:var(--mono); font-size:11px; color:var(--muted); margin-top:14px; margin-bottom:30px; letter-spacing:.06em; }
+
+    .specs { display:grid; grid-template-columns:1fr 1fr 1fr; border:1px solid var(--line); margin-bottom:30px; }
+    .specs__cell { padding:16px 12px; text-align:center; border-right:1px solid var(--line); }
+    .specs__cell:last-child { border-right:none; }
+    .specs__num { font-family:var(--display); font-weight:400; font-size:26px; color:var(--gold); line-height:1; margin-bottom:6px; }
+    .specs__label { font-family:var(--mono); font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+
+    .qual { margin-bottom:30px; }
+    .qual__row { display:flex; gap:14px; align-items:baseline; padding:10px 0; border-bottom:1px solid var(--line); font-size:14px; color:var(--ink); font-weight:400; }
+    .qual__row:last-child { border-bottom:none; }
+    .qual__num { flex:0 0 auto; font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:.06em; }
+
+    .review { padding:18px 0; border-top:1px solid var(--line); }
+    .review__body { font-family:var(--display); font-weight:400; font-size:17px; color:var(--ink); font-style:italic; line-height:1.45; margin-bottom:8px; }
+    .review__attr { font-family:var(--mono); font-size:10px; color:var(--gold); letter-spacing:.14em; text-transform:uppercase; }
+
+    .footer-note { font-family:var(--mono); font-size:10px; color:var(--muted); margin-top:36px; line-height:1.6; letter-spacing:.04em; text-align:center; }
+
+    .variant-nav { position:fixed; bottom:0; left:0; right:0; background:var(--bg); border-top:1px solid var(--gold); display:flex; justify-content:space-between; align-items:center; padding:14px 18px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; z-index:10; }
+    .variant-nav a { color:var(--gold); text-decoration:none; font-weight:500; }
+    .variant-nav .label { color:var(--muted); }
+
+    @media (max-width:480px) { h1 { font-size:36px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brand">
+      <span class="brand__name">Home IQ</span>
+      <span class="brand__app">By Application · 2026</span>
+    </div>
+
+    <div class="kicker">2026 Spots Open</div>
+    <h1>Premium walk-in showers, <em>expertly</em> installed.</h1>
+    <p class="lede">Hand-picked installers in your area. We accept a limited number of homes per ZIP each season. Apply to see if yours is a fit.</p>
+
+    <img class="hero-photo" src="../../_assets/hero/hero-15.webp" alt="Premium walk-in shower installation" loading="eager" width="1280" height="720">
+
+    <a class="cta pb-track-link" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">
+      Apply Now
+    </a>
+    <p class="cta__sub">~60 seconds · no obligation</p>
+
+    <div class="specs">
+      <div class="specs__cell"><div class="specs__num">1-Day</div><div class="specs__label">Install</div></div>
+      <div class="specs__cell"><div class="specs__num">Lifetime</div><div class="specs__label">Warranty</div></div>
+      <div class="specs__cell"><div class="specs__num">4.9</div><div class="specs__label">Rating · 12,847</div></div>
+    </div>
+
+    <div class="qual" aria-label="Eligibility">
+      <div class="qual__row"><span class="qual__num">01</span><span>Homeowner</span></div>
+      <div class="qual__row"><span class="qual__num">02</span><span>Home older than 5 years</span></div>
+      <div class="qual__row"><span class="qual__num">03</span><span>Located in the United States</span></div>
+    </div>
+
+    <div class="review">
+      <p class="review__body">"The quote was honest, the timeline was honest, and the work was finished a day early."</p>
+      <span class="review__attr">— Michelle C. · Albany, NY</span>
+    </div>
+    <div class="review">
+      <p class="review__body">"Feels like a hotel bathroom now. Worth every dollar."</p>
+      <span class="review__attr">— Laura H. · Scottsdale, AZ</span>
+    </div>
+
+    <p class="footer-note">Home IQ matches qualified homeowners with independent licensed remodelers. Free, no-obligation application.</p>
+  </main>
+
+  <nav class="variant-nav" aria-label="Variant navigator">
+    <a href="../styled-3-pastel/index.html">← styled-3</a>
+    <span class="label">styled-4 · dark (4 / 5)</span>
+    <a href="../styled-5-retro/index.html">styled-5 →</a>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+  Styled variant 3 — Soft Modern Pastel.
+  Voice: friendly, sophisticated, calm. Linear/Notion feel.
+  Look: mint + blush gradient BG, white cards, large rounding, soft shadows.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home IQ — Your New Walk-In Shower, Simplified</title>
+  <meta name="description" content="Your new walk-in shower, simplified. One-day install. Lifetime warranty. Designed around your bathroom.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --ink:#1f2937; --body:#475569; --muted:#94a3b8;
+      --mint:#a8e6cf; --mint-soft:#e0f7f0;
+      --blush:#fce4e4; --blush-soft:#fdf1f1;
+      --accent:#5b8def; --accent-dark:#3d6fd9;
+      --card:#ffffff;
+      --sans:'Inter', -apple-system, sans-serif;
+    }
+    body {
+      font-family:var(--sans); color:var(--body); line-height:1.55; -webkit-font-smoothing:antialiased;
+      background:linear-gradient(135deg, var(--mint-soft) 0%, var(--blush-soft) 100%);
+      min-height:100vh;
+    }
+    .page { max-width:580px; margin:0 auto; padding:24px 18px 110px; }
+
+    .brand { display:flex; align-items:center; gap:8px; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:30px; }
+    .brand__dot { width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg, var(--mint), var(--accent)); }
+
+    h1 { font-size:36px; line-height:1.15; font-weight:700; color:var(--ink); margin-bottom:12px; letter-spacing:-.02em; }
+    h1 em { font-style:normal; background:linear-gradient(120deg, var(--mint) 0%, var(--accent) 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .lede { font-size:17px; color:var(--body); margin-bottom:24px; font-weight:400; }
+
+    .hero-photo { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-radius:20px; margin-bottom:22px; box-shadow:0 12px 32px rgba(31,41,55,.08); }
+
+    .cta {
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      width:100%; background:var(--accent); color:#fff;
+      border:none; border-radius:14px;
+      font-family:inherit; font-weight:600; font-size:17px;
+      padding:18px 22px; text-decoration:none;
+      box-shadow:0 8px 20px rgba(91,141,239,.3);
+      transition:transform .15s, box-shadow .15s, background .2s;
+      cursor:pointer;
+    }
+    .cta:hover { background:var(--accent-dark); transform:translateY(-1px); box-shadow:0 12px 24px rgba(91,141,239,.4); }
+    .cta__hint { text-align:center; font-size:13px; color:var(--muted); margin-top:10px; margin-bottom:24px; }
+
+    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:26px; }
+    .feature { background:var(--card); border-radius:16px; padding:14px 8px; text-align:center; box-shadow:0 4px 12px rgba(31,41,55,.05); }
+    .feature__icon { font-size:22px; display:block; margin-bottom:4px; }
+    .feature__title { font-size:13px; font-weight:600; color:var(--ink); line-height:1.2; }
+    .feature__sub { display:block; font-size:11px; color:var(--muted); margin-top:2px; font-weight:500; }
+
+    .qual { background:var(--card); border-radius:18px; padding:18px 20px; margin-bottom:22px; box-shadow:0 4px 14px rgba(31,41,55,.05); }
+    .qual__title { font-size:14px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px; }
+    .qual__list { display:flex; flex-direction:column; gap:8px; list-style:none; }
+    .qual__list li { display:flex; align-items:center; gap:10px; font-size:15px; color:var(--ink); font-weight:500; }
+    .qual__list li::before { content:"✓"; flex:0 0 22px; height:22px; background:var(--mint); color:var(--ink); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; }
+
+    .review { background:var(--card); border-radius:16px; padding:14px 16px; box-shadow:0 4px 12px rgba(31,41,55,.05); margin-bottom:10px; }
+    .review__body { font-size:14px; color:var(--body); font-style:italic; }
+    .review__attr { display:block; font-size:12px; font-weight:600; color:var(--muted); margin-top:6px; }
+    .review__stars { color:#f5a623; margin-right:4px; letter-spacing:1px; }
+
+    .footer-note { font-size:11px; color:var(--muted); margin-top:24px; line-height:1.5; text-align:center; }
+
+    .variant-nav { position:fixed; bottom:0; left:0; right:0; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); border-top:1px solid rgba(31,41,55,.08); display:flex; justify-content:space-between; align-items:center; padding:12px 18px; font-size:13px; z-index:10; }
+    .variant-nav a { color:var(--accent); text-decoration:none; font-weight:600; }
+    .variant-nav .label { color:var(--muted); font-weight:500; }
+
+    @media (max-width:480px) { h1 { font-size:30px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brand"><span class="brand__dot" aria-hidden="true"></span> Home IQ</div>
+
+    <h1>Your new walk-in shower, <em>simplified.</em></h1>
+    <p class="lede">One-day install. Lifetime warranty. Designed around your bathroom — not the other way around.</p>
+
+    <img class="hero-photo" src="../../_assets/hero/hero-14.webp" alt="Newly installed walk-in shower" loading="eager" width="1280" height="720">
+
+    <a class="cta pb-track-link" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">
+      Start Free Quote →
+    </a>
+    <p class="cta__hint">Takes about 60 seconds · no phone call required</p>
+
+    <div class="features" aria-label="At a glance">
+      <div class="feature"><span class="feature__icon" aria-hidden="true">⏱</span><span class="feature__title">1-Day Install</span><span class="feature__sub">on most projects</span></div>
+      <div class="feature"><span class="feature__icon" aria-hidden="true">🛡</span><span class="feature__title">Lifetime</span><span class="feature__sub">warranty</span></div>
+      <div class="feature"><span class="feature__icon" aria-hidden="true">★</span><span class="feature__title">4.9 / 5</span><span class="feature__sub">12,847 reviews</span></div>
+    </div>
+
+    <div class="qual">
+      <div class="qual__title">You're a good fit if</div>
+      <ul class="qual__list">
+        <li>You own your home</li>
+        <li>It's been around for 5+ years</li>
+        <li>You're in the United States</li>
+      </ul>
+    </div>
+
+    <div class="review">
+      <p class="review__body"><span class="review__stars">★★★★★</span>"Designed around our bathroom layout — not a generic kit. Finished in a day."</p>
+      <span class="review__attr">— Michelle C., Albany, NY</span>
+    </div>
+    <div class="review">
+      <p class="review__body"><span class="review__stars">★★★★★</span>"Clean, calm process. Lifetime warranty made the decision easy."</p>
+      <span class="review__attr">— Laura H., Scottsdale, AZ</span>
+    </div>
+
+    <p class="footer-note">Home IQ connects homeowners with independent, licensed remodelers. Free, no-obligation quote.</p>
+  </main>
+
+  <nav class="variant-nav" aria-label="Variant navigator">
+    <a href="../styled-2-bold/index.html">← styled-2</a>
+    <span class="label">styled-3 · pastel (3 / 5)</span>
+    <a href="../styled-4-dark/index.html">styled-4 →</a>
+  </nav>
+</body>
+</html>

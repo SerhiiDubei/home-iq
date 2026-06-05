@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--
+  Midi variant 4 — ZIP + Trust. Three changes vs baseline:
+    1. ZIP-first input replaces hero CTA (from m4).
+    2. Trust bar (4-cell) below ZIP input (from m3).
+    3. Real hero photo from photobank.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home IQ — Check Your ZIP for 2026 Walk-In Shower</title>
+  <meta name="description" content="Enter your ZIP to check 2026 walk-in shower quotes in your area.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand:#2563eb; --brand-dark:#1745aa;
+      --yes:#04ae15; --yes-dark:#038f11;
+      --no:#eb060a;  --no-dark:#c20407;
+      --ink:#111827; --body:#374151;
+      --page-bg:#f7f7f7; --card-bg:#fff;
+      --radius:8px;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Rubik',sans-serif; color:var(--body); background:var(--page-bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
+    .page { max-width:600px; margin:0 auto; padding:20px 16px 96px; }
+
+    .hero__headline { color:var(--ink); font-size:26px; font-weight:600; line-height:1.25; text-align:center; margin-bottom:18px; }
+    .hero__image { width:100%; aspect-ratio:16/9; border-radius:15px; object-fit:cover; display:block; margin-bottom:22px; border:1px solid #dfe6ff; }
+
+    .zip-form {
+      display:grid; grid-template-columns:1fr auto; gap:8px;
+      background:#fff; border-radius:var(--radius); padding:6px;
+      border:1px solid #dfe6ff; box-shadow:0 2px 12px rgba(37,99,235,.08);
+      margin-bottom:10px;
+    }
+    .zip-form__input {
+      font-family:inherit; font-size:18px; font-weight:600; color:var(--ink);
+      border:none; outline:none; padding:12px 14px; background:transparent;
+      letter-spacing:.05em; min-width:0;
+    }
+    .zip-form__input::placeholder { color:#9ca3af; font-weight:500; letter-spacing:.05em; }
+    .zip-form__btn {
+      background:var(--brand); color:#fff; border:none; cursor:pointer;
+      font-family:inherit; font-size:16px; font-weight:700;
+      padding:12px 18px; border-radius:6px; white-space:nowrap;
+      transition:background .2s;
+    }
+    .zip-form__btn:hover { background:var(--brand-dark); }
+    .zip-hint { font-size:12px; color:#6b7280; text-align:center; margin-bottom:14px; }
+    .zip-error { display:none; font-size:13px; color:var(--no); text-align:center; margin:6px 0 0; font-weight:500; }
+    .zip-error.show { display:block; }
+
+    .trust-bar {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:6px;
+      background:#fff; border:1px solid #e6e6e6; border-radius:10px;
+      padding:10px 8px; margin-bottom:22px;
+      box-shadow:0 1px 6px rgba(17,24,39,.04);
+    }
+    .trust-bar__cell { text-align:center; font-size:11px; font-weight:600; color:var(--ink); line-height:1.25; }
+    .trust-bar__top { display:block; color:var(--brand); font-size:13px; margin-bottom:2px; }
+    .trust-bar__top--stars { color:#f59e0b; letter-spacing:.5px; }
+
+    .cta { display:block; width:100%; text-align:center; text-decoration:none; font-weight:700; border-radius:var(--radius); padding:16px 20px; transition:background .3s, transform .1s; cursor:pointer; border:none; font-size:18px; }
+    .cta:active { transform:scale(.99); }
+    .cta--yes { background:var(--yes); color:#fff; }   .cta--yes:hover { background:var(--yes-dark); }
+    .cta--no  { background:var(--no);  color:#fff; }   .cta--no:hover  { background:var(--no-dark); }
+    .cta-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:22px; }
+
+    .note { background:rgba(175,191,248,.15); border-radius:var(--radius); padding:14px 16px; font-size:12px; color:var(--body); text-align:center; margin-bottom:26px; }
+
+    .qualify { background:var(--card-bg); border-radius:15px; padding:22px 20px; margin-bottom:22px; box-shadow:0 2px 14px rgba(17,24,39,.06); }
+    .qualify__title { color:var(--ink); font-size:19px; font-weight:600; text-align:center; margin-bottom:16px; }
+    .qualify__list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .qualify__list li { font-size:16px; font-weight:500; color:var(--ink); display:flex; gap:10px; align-items:baseline; }
+    .qualify__num { flex:0 0 24px; height:24px; border-radius:50%; background:var(--brand); color:#fff; font-size:13px; font-weight:700; display:inline-flex; align-items:center; justify-content:center; }
+
+    .reviews { display:flex; flex-direction:column; gap:16px; }
+    .review { background:var(--card-bg); border-radius:12px; padding:16px 18px; box-shadow:0 1px 8px rgba(17,24,39,.05); }
+    .review__head { font-size:14px; font-weight:600; color:var(--ink); margin-bottom:6px; }
+    .review__stars { letter-spacing:1px; color:#f59e0b; }
+    .review__body { font-size:14px; color:var(--body); font-style:italic; }
+
+    .section-label { text-align:center; font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--brand); margin:8px 0 14px; }
+
+    .variant-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid #e6e6e6; display:flex; justify-content:space-between; align-items:center; padding:10px 16px; font-size:13px; box-shadow:0 -2px 14px rgba(17,24,39,.05); z-index:10; }
+    .variant-nav a { color:var(--brand); text-decoration:none; font-weight:600; }
+    .variant-nav .label { color:#6b7280; font-weight:500; }
+
+    @media (min-width:600px) { .hero__headline { font-size:32px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1 class="hero__headline">
+      Homeowners Get Huge Relief Remodeling Their Bathrooms With New 2026 Services — Saving Homeowners Thousands
+    </h1>
+
+    <img class="hero__image" src="../../_assets/hero/hero-10.webp" alt="Newly remodeled walk-in shower with sliding glass door" loading="eager" width="1280" height="720">
+
+    <form class="zip-form" id="zipForm" novalidate>
+      <input class="zip-form__input" type="text" inputmode="numeric" maxlength="5" pattern="\d{5}"
+             placeholder="Enter your ZIP" aria-label="ZIP code" id="zipInput" autocomplete="postal-code" required>
+      <button class="zip-form__btn" type="submit">Check ZIP →</button>
+    </form>
+    <p class="zip-hint">Free, no-obligation — see if your ZIP qualifies in seconds.</p>
+    <p class="zip-error" id="zipError" role="alert">Please enter a valid 5-digit US ZIP.</p>
+
+    <div class="trust-bar" aria-label="Trust signals">
+      <div class="trust-bar__cell"><span class="trust-bar__top trust-bar__top--stars">★★★★★</span>4.9 / 5<br>12,847 reviews</div>
+      <div class="trust-bar__cell"><span class="trust-bar__top">BBB</span>A+<br>Rating</div>
+      <div class="trust-bar__cell"><span class="trust-bar__top">✓</span>Licensed<br>&amp; Insured</div>
+      <div class="trust-bar__cell"><span class="trust-bar__top">⏱</span>1-Day<br>Install</div>
+    </div>
+
+    <p class="note">
+      Home IQ connects homeowners with independent, licensed remodelers. Bathrooms are not free — you are
+      requesting a free, no-obligation quote. Pricing varies based on your project and can change at any time.
+    </p>
+
+    <section class="qualify">
+      <h2 class="qualify__title">Do You Meet These 3 Simple Requirements to Qualify for Bathroom Remodel Relief?</h2>
+      <ul class="qualify__list">
+        <li><span class="qualify__num">1</span> Are You a Homeowner?</li>
+        <li><span class="qualify__num">2</span> Is Your Home Over 5 Years Old?</li>
+        <li><span class="qualify__num">3</span> Do You Live In The USA?</li>
+      </ul>
+    </section>
+
+    <div class="cta-row">
+      <a class="cta cta--yes pb-track-link" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">YES</a>
+      <a class="cta cta--no pb-track-link"  href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">NO</a>
+    </div>
+
+    <p class="section-label">What Homeowners Are Saying</p>
+    <div class="reviews">
+      <div class="review">
+        <div class="review__head"><span class="review__stars">★★★★★</span> — Laura Henderson — Scottsdale, AZ</div>
+        <p class="review__body">"Didn't expect the remodel to look this good. Our old bathroom now feels like a designer space. The team worked fast, stayed neat, and even finished early."</p>
+      </div>
+      <div class="review">
+        <div class="review__head"><span class="review__stars">★★★★★</span> — Michelle Carver — Albany, NY</div>
+        <p class="review__body">"Their quote beat every competitor and the quality still feels premium. The new shower looks straight out of a hotel."</p>
+      </div>
+      <div class="review">
+        <div class="review__head"><span class="review__stars">★★★★★</span> — Michael Bennett — Charlotte, NC</div>
+        <p class="review__body">"Applied online during lunch and got approved instantly. A few days later the team arrived, and within a week the bathroom looked brand-new."</p>
+      </div>
+    </div>
+  </main>
+
+  <nav class="variant-nav" aria-label="Variant navigator">
+    <a href="../midi-3-social-first/index.html">← midi-3</a>
+    <span class="label">midi-4 · ZIP + trust (4 / 5)</span>
+    <a href="../midi-5-benefit-stack/index.html">midi-5 →</a>
+  </nav>
+
+  <script>
+    (function () {
+      var form  = document.getElementById('zipForm');
+      var input = document.getElementById('zipInput');
+      var err   = document.getElementById('zipError');
+      var FUNNEL = 'https://homeimprove.io/get-quotes/walk-in-shower/';
+
+      input.addEventListener('input', function () {
+        var cleaned = input.value.replace(/\D+/g, '').slice(0, 5);
+        if (cleaned !== input.value) input.value = cleaned;
+        if (err.classList.contains('show') && /^\d{5}$/.test(cleaned)) {
+          err.classList.remove('show');
+        }
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var zip = input.value.trim();
+        if (!/^\d{5}$/.test(zip)) {
+          err.classList.add('show');
+          input.focus();
+          return;
+        }
+        window.location.href = FUNNEL + '?zip=' + encodeURIComponent(zip);
+      });
+    })();
+  </script>
+</body>
+</html>

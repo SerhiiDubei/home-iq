@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home IQ — Bathroom Remodel Relief</title>
+  <meta name="description" content="See if you qualify for 2026 bathroom remodel relief. Answer 3 quick questions and get a free quote.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ---- Design tokens (extracted from source landing) ---- */
+    :root {
+      --brand:        #2563eb;
+      --brand-dark:   #1745aa;
+      --yes:          #04ae15;
+      --yes-dark:     #038f11;
+      --no:           #eb060a;
+      --no-dark:      #c20407;
+      --ink:          #111827;   /* headings */
+      --body:         #374151;   /* paragraph */
+      --note-bg:      #afbff8;   /* disclaimer plate */
+      --page-bg:      #f7f7f7;
+      --card-bg:      #ffffff;
+      --radius:       8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Rubik', sans-serif;
+      color: var(--body);
+      background: var(--page-bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px 16px 48px;
+    }
+
+    /* ---- Hero ---- */
+    .hero__headline {
+      color: var(--ink);
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.25;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .hero__image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 15px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 22px;
+      border: 1px solid #dfe6ff;
+    }
+
+    /* ---- Primary CTA button ---- */
+    .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      transition: background .3s, transform .1s;
+      cursor: pointer;
+      border: none;
+      font-size: 18px;
+    }
+    .cta:active { transform: scale(.99); }
+
+    .cta--yes  { background: var(--yes); color: #fff; }
+    .cta--yes:hover  { background: var(--yes-dark); }
+    .cta--no   { background: var(--no);  color: #fff; }
+    .cta--no:hover   { background: var(--no-dark); }
+    .cta--brand { background: var(--brand); color: #fff; font-size: 20px; }
+    .cta--brand:hover { background: var(--brand-dark); }
+
+    .cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 22px; }
+    .cta--solo { margin-bottom: 22px; }
+
+    /* ---- Disclaimer plate ---- */
+    .note {
+      background: rgba(175, 191, 248, 0.15);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      font-size: 12px;
+      color: var(--body);
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    /* ---- Qualifier block ---- */
+    .qualify {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 22px 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 14px rgba(17, 24, 39, .06);
+    }
+    .qualify__title {
+      color: var(--ink);
+      font-size: 19px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .qualify__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .qualify__list li {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .qualify__num {
+      flex: 0 0 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ---- Reviews ---- */
+    .reviews { display: flex; flex-direction: column; gap: 16px; }
+    .review {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px 18px;
+      box-shadow: 0 1px 8px rgba(17, 24, 39, .05);
+    }
+    .review__head { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .review__stars { letter-spacing: 1px; }
+    .review__body { font-size: 14px; color: var(--body); font-style: italic; }
+
+    .section-label {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin: 8px 0 14px;
+    }
+
+    @media (min-width: 600px) {
+      .hero__headline { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- Hero -->
+    <h1 class="hero__headline">
+      Homeowners Get Huge Relief Remodeling Their Bathrooms With New 2026 Services — Saving Homeowners Thousands
+    </h1>
+
+    <img class="hero__image" src="../_assets/hero/hero-01.webp" alt="Newly remodeled walk-in shower with sliding glass door" loading="eager" width="1280" height="720">
+
+    <a class="cta cta--brand cta--solo pb-track-link" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">
+      YES — Show Me My Options
+    </a>
+
+    <p class="note">
+      Home IQ connects homeowners with independent, licensed remodelers. Bathrooms are not free — you are
+      requesting a free, no-obligation quote. Pricing varies based on your project and can change at any time.
+    </p>
+
+    <!-- Qualifier -->
+    <section class="qualify">
+      <h2 class="qualify__title">Do You Meet These 3 Simple Requirements to Qualify for Bathroom Remodel Relief?</h2>
+      <ul class="qualify__list">
+        <li><span class="qualify__num">1</span> Are You a Homeowner?</li>
+        <li><span class="qualify__num">2</span> Is Your Home Over 5 Years Old?</li>
+        <li><span class="qualify__num">3</span> Do You Live In The USA?</li>
+      </ul>
+    </section>
+
+    <div class="cta-row">
+      <a class="cta cta--yes pb-track-link" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">YES</a>
+      <a class="cta cta--no pb-track-link"  href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">NO</a>
+    </div>
+
+    <!-- Reviews -->
+    <p class="section-label">What Homeowners Are Saying</p>
+    <div class="reviews">
+      <div class="review">
+        <div class="review__head"><span class="review__stars">★★★★★</span> — Laura Henderson — Scottsdale, AZ</div>
+        <p class="review__body">"Didn't expect the remodel to look this good. Our old bathroom now feels like a designer space. The team worked fast, stayed neat, and even finished early. I keep walking in just to admire it."</p>
+      </div>
+      <div class="review">
+        <div class="review__head"><span class="review__stars">★★★★★</span> — Michelle Carver — Albany, NY</div>
+        <p class="review__body">"Easily the best upgrade we've made. Their quote beat every competitor, and the quality still feels premium. The new shower looks straight out of a hotel. Stress-free and worth every dollar."</p>
+      </div>
+      <div class="review">
+        <div class="review__head"><span class="review__stars">★★★★★</span> — Tanya Ramirez — San Antonio, TX</div>
+        <p class="review__body">"I expected chaos with kids at home, but the whole project was quick and smooth. They were punctual, efficient, and finished faster than planned. Zero disruption. Five stars."</p>
+      </div>
+      <div class="review">
+        <div class="review__head"><span class="review__stars">★★★★★</span> — Michael Bennett — Charlotte, NC</div>
+        <p class="review__body">"Applied online during lunch and got approved instantly. A few days later the team arrived, and within a week the bathroom looked brand-new. Friendly crew, easy process, great results."</p>
+      </div>
+      <div class="review">
+        <div class="review__head"><span class="review__stars">★★★★★</span> — Katherine Lewis — Boise, ID</div>
+        <p class="review__body">"If you're hesitating, don't. We saved more than expected, and the remodel turned out beautiful. Clear communication, no surprise fees, and everything stayed on budget. Couldn't be happier."</p>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

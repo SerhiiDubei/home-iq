@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home IQ — See Your Walk-In Shower Before &amp; After</title>
+  <meta name="description" content="See the before-and-after, then check if you qualify for a 1-day walk-in shower install in 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand:#2563eb; --brand-dark:#1745aa;
+      --yes:#04ae15; --yes-dark:#038f11; --no:#eb060a; --no-dark:#c20407;
+      --ink:#111827; --body:#374151; --page-bg:#f7f7f7; --card-bg:#fff;
+      --star:#f5a623; --radius:8px;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Rubik',sans-serif; color:var(--body); background:var(--page-bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
+    .page{max-width:600px;margin:0 auto;padding:22px 16px 48px;}
+
+    .reviewbar{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+    .reviewbar__stars{color:var(--star);font-size:18px;letter-spacing:2px;}
+    .reviewbar__text{font-size:13px;color:var(--ink);font-weight:600;}
+    .reviewbar__sub{font-size:13px;color:var(--body);}
+
+    .hero__headline{color:var(--ink);font-size:25px;font-weight:600;line-height:1.25;text-align:center;margin-bottom:6px;}
+    .hero__sub{text-align:center;font-size:15px;color:var(--body);margin-bottom:18px;}
+
+    /* Before / After slider */
+    .ba{position:relative;width:100%;aspect-ratio:4/3;border-radius:15px;overflow:hidden;user-select:none;box-shadow:0 4px 18px rgba(17,24,39,.12);}
+    .ba__img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;}
+    .ba__after{background:linear-gradient(135deg,#dbe7ff,#bcd0ff);color:var(--brand-dark);}
+    .ba__before{background:linear-gradient(135deg,#d7d2c7,#b3aa99);color:#5a5346;clip-path:inset(0 50% 0 0);}
+    .ba__tag{position:absolute;top:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(17,24,39,.6);padding:4px 10px;border-radius:20px;}
+    .ba__tag--before{left:12px;} .ba__tag--after{right:12px;}
+    .ba__range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;}
+    .ba__handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);pointer-events:none;box-shadow:0 0 6px rgba(0,0,0,.3);}
+    .ba__handle::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;background:#fff;color:var(--brand);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+    .ba__hint{text-align:center;font-size:12px;color:#9aa1ad;margin:8px 0 18px;}
+
+    /* 1-day badge */
+    .badge{display:flex;align-items:center;justify-content:center;gap:8px;background:#eafaf0;border:1px solid #b9ecca;color:var(--yes-dark);font-weight:700;font-size:15px;border-radius:99px;padding:10px 16px;margin:0 auto 18px;max-width:320px;}
+
+    /* Benefits — parallel structure (copy-principle #5) */
+    .benefits{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:22px;}
+    .benefit{display:flex;gap:12px;align-items:flex-start;background:var(--card-bg);border-radius:12px;padding:14px 16px;box-shadow:0 1px 8px rgba(17,24,39,.05);}
+    .benefit__icon{font-size:22px;line-height:1;}
+    .benefit__title{color:var(--ink);font-weight:600;font-size:15px;}
+    .benefit__text{font-size:13px;color:var(--body);}
+
+    .cta{display:block;width:100%;text-align:center;text-decoration:none;font-weight:700;border-radius:var(--radius);padding:16px 20px;border:none;font-size:19px;cursor:pointer;transition:background .3s,transform .1s;}
+    .cta:active{transform:scale(.99);}
+    .cta--brand{background:var(--brand);color:#fff;} .cta--brand:hover{background:var(--brand-dark);}
+    .cta--yes{background:var(--yes);color:#fff;} .cta--yes:hover{background:var(--yes-dark);}
+    .cta--no{background:var(--no);color:#fff;} .cta--no:hover{background:var(--no-dark);}
+    .cta-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+
+    .qualify{background:var(--card-bg);border-radius:15px;padding:22px 20px;margin-bottom:16px;box-shadow:0 2px 14px rgba(17,24,39,.06);}
+    .qualify__title{color:var(--ink);font-size:18px;font-weight:600;text-align:center;margin-bottom:16px;}
+    .qualify__list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .qualify__list li{font-size:16px;font-weight:500;color:var(--ink);display:flex;gap:10px;align-items:baseline;}
+    .qualify__num{flex:0 0 24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;}
+    .reassure{text-align:center;font-size:13px;color:var(--body);margin-bottom:26px;}
+    .reassure b{color:var(--ink);}
+
+    .section-label{text-align:center;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);margin:8px 0 14px;}
+    .reviews{display:flex;flex-direction:column;gap:14px;}
+    .review{background:var(--card-bg);border-radius:12px;padding:14px 16px;box-shadow:0 1px 8px rgba(17,24,39,.05);}
+    .review__head{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:5px;}
+    .review__stars{color:var(--star);letter-spacing:1px;}
+    .review__body{font-size:13px;color:var(--body);font-style:italic;}
+    .note{font-size:11px;color:#9aa1ad;text-align:center;margin-top:22px;line-height:1.4;}
+
+    @media (min-width:560px){ .benefits{grid-template-columns:1fr 1fr;} }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="reviewbar">
+      <span class="reviewbar__stars">★★★★★</span>
+      <span class="reviewbar__text">4.9/5</span>
+      <span class="reviewbar__sub">12,000+ remodels completed</span>
+    </div>
+
+    <h1 class="hero__headline">From Dated Tub to Designer Walk-In Shower</h1>
+    <p class="hero__sub">Drag the slider to see a real tub-to-shower conversion.</p>
+
+    <div class="ba" id="ba">
+      <div class="ba__img ba__after">AFTER</div>
+      <div class="ba__img ba__before" id="baBefore">BEFORE</div>
+      <span class="ba__tag ba__tag--before">Before</span>
+      <span class="ba__tag ba__tag--after">After</span>
+      <div class="ba__handle" id="baHandle"></div>
+      <input class="ba__range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Before and after comparison slider">
+    </div>
+    <p class="ba__hint">← drag to compare →</p>
+
+    <div class="badge">⚡ Installed in as little as 1 day</div>
+
+    <div class="benefits">
+      <div class="benefit"><span class="benefit__icon">⚡</span><div><div class="benefit__title">Installed in 1 Day</div><div class="benefit__text">Most conversions done in a single visit.</div></div></div>
+      <div class="benefit"><span class="benefit__icon">🦶</span><div><div class="benefit__title">Built for Easy Access</div><div class="benefit__text">Low step-in, grab bars, slip-resistant floor.</div></div></div>
+      <div class="benefit"><span class="benefit__icon">🧽</span><div><div class="benefit__title">Made to Stay Clean</div><div class="benefit__text">Seamless walls — no grout to scrub.</div></div></div>
+      <div class="benefit"><span class="benefit__icon">🛡️</span><div><div class="benefit__title">Backed for Life</div><div class="benefit__text">Lifetime warranty on materials &amp; labor.</div></div></div>
+    </div>
+
+    <a class="cta cta--brand" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener" style="margin-bottom:24px;">Get My Free Design Quote →</a>
+
+    <section class="qualify">
+      <h2 class="qualify__title">See If You Qualify — 3 Quick Questions</h2>
+      <ul class="qualify__list">
+        <li><span class="qualify__num">1</span> Are You a Homeowner?</li>
+        <li><span class="qualify__num">2</span> Is Your Home Over 5 Years Old?</li>
+        <li><span class="qualify__num">3</span> Do You Live In The USA?</li>
+      </ul>
+    </section>
+
+    <div class="cta-row">
+      <a class="cta cta--yes" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">YES</a>
+      <a class="cta cta--no"  href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">NO</a>
+    </div>
+    <p class="reassure"><b>Free &amp; no-obligation.</b> See your design options and savings in under 60 seconds.</p>
+
+    <p class="section-label">What Homeowners Are Saying</p>
+    <div class="reviews">
+      <div class="review"><div class="review__head"><span class="review__stars">★★★★★</span> — Laura Henderson — Scottsdale, AZ</div><p class="review__body">"Didn't expect the remodel to look this good. Our old bathroom now feels like a designer space. The team worked fast, stayed neat, and even finished early."</p></div>
+      <div class="review"><div class="review__head"><span class="review__stars">★★★★★</span> — Tanya Ramirez — San Antonio, TX</div><p class="review__body">"I expected chaos with kids at home, but the whole project was quick and smooth. Punctual, efficient, and finished faster than planned. Zero disruption."</p></div>
+      <div class="review"><div class="review__head"><span class="review__stars">★★★★★</span> — Katherine Lewis — Boise, ID</div><p class="review__body">"We saved more than expected, and the remodel turned out beautiful. Clear communication, no surprise fees, and everything stayed on budget."</p></div>
+    </div>
+
+    <p class="note">Home IQ connects homeowners with independent, licensed remodelers. Free, no-obligation quote — bathrooms are not free. Install time, pricing and warranty vary by project and provider.</p>
+  </main>
+
+  <script>
+    (function () {
+      const range  = document.getElementById('baRange');
+      const before = document.getElementById('baBefore');
+      const handle = document.getElementById('baHandle');
+      function sync() {
+        const v = range.value;
+        before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)';
+        handle.style.left = v + '%';
+      }
+      range.addEventListener('input', sync);
+      sync();
+    })();
+  </script>
+</body>
+</html>

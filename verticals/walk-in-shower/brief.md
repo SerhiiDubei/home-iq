@@ -10,7 +10,10 @@ Walk-in shower installation, tub-to-shower conversions, and bathroom remodeling 
 - Motivation to act: accessibility needs, renovation, home value
 
 ## Competitive Landscape
-<!-- Add competitors: Bath Fitter, Re-Bath, West Shore Home -->
+- **HomeQuotePro** — quiz-prelander for paid traffic. See `references/home-quote-pro.md`.
+  Format basis for our `landings/`. Strong: micro-commitment quiz + social proof.
+  Weak: vague offer, no visuals, spam-flavored disclaimer.
+- Full-landing players to add: Bath Fitter, Re-Bath, West Shore Home (for benefits/visual proof).
 
 ## Tone & Messaging
 - Primary message: A beautiful, accessible shower installed in as little as 1 day
@@ -23,7 +26,11 @@ Walk-in shower installation, tub-to-shower conversions, and bathroom remodeling 
 - Secondary goal: style selector / gallery
 
 ## Key Pages / Landings
-<!-- Add landings as they are created -->
+Quiz-prelander set in `landings/` (see `landings/INDEX.html`). All CTAs → `get-quotes/walk-in-shower/`.
+- `baseline/` — faithful Home IQ rebuild of HomeQuotePro (A/B control)
+- `v1-trust-offer/` — grounded offer, urgency, authority logos, sticky CTA
+- `v2-interactive-quiz/` — step-by-step quiz with progress bar (vanilla JS)
+- `v3-visual-proof/` — before/after slider, 1-day badge, parallel benefits
 
 ## Notes
 - Pairs well with walk-in tubs vertical (aging-in-place audience)

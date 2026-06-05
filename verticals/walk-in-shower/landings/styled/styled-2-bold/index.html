@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+  Styled variant 2 — Bold Direct.
+  Voice: direct, all-caps allowed, no softeners.
+  Look: huge sans-serif Anton/Inter Black, electric green + black, mega button, high contrast.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home IQ — SAVE $1,500 on Your 2026 Shower Remodel</title>
+  <meta name="description" content="SAVE $1,500 on your 2026 walk-in shower remodel. Check if your home qualifies in 60 seconds.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --ink:#0a0a0a; --body:#1a1a1a; --bg:#fff;
+      --green:#00d762; --green-dark:#00a84e;
+      --muted:#666;
+      --display:'Anton', Impact, sans-serif;
+      --sans:'Inter', -apple-system, sans-serif;
+    }
+    body { font-family:var(--sans); color:var(--body); background:var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; }
+    .page { max-width:600px; margin:0 auto; padding:18px 16px 100px; }
+
+    .top-strip { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:var(--ink); color:#fff; border-radius:4px; margin-bottom:18px; font-size:13px; font-weight:600; }
+    .top-strip__brand { letter-spacing:.08em; }
+    .top-strip__badge { background:var(--green); color:var(--ink); padding:3px 10px; border-radius:99px; font-size:11px; font-weight:800; letter-spacing:.04em; }
+
+    h1 { font-family:var(--display); font-weight:400; font-size:54px; line-height:.96; color:var(--ink); text-transform:uppercase; letter-spacing:-.01em; margin-bottom:14px; }
+    .h1__hl { background:var(--green); padding:0 8px; display:inline-block; }
+    .lede { font-size:17px; color:var(--body); font-weight:500; margin-bottom:18px; }
+
+    .hero-photo { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border:3px solid var(--ink); margin-bottom:20px; }
+
+    .cta {
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      width:100%; background:var(--green); color:var(--ink);
+      border:3px solid var(--ink); border-radius:4px;
+      font-family:var(--sans); font-weight:800; font-size:22px;
+      padding:18px 20px; text-decoration:none; text-transform:uppercase;
+      letter-spacing:.02em; cursor:pointer;
+      box-shadow:6px 6px 0 var(--ink);
+      transition:transform .1s, box-shadow .1s;
+    }
+    .cta:hover { transform:translate(-2px,-2px); box-shadow:8px 8px 0 var(--ink); }
+    .cta:active { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+    .cta__sub { display:block; text-align:center; font-size:13px; color:var(--muted); font-weight:600; margin-top:10px; margin-bottom:22px; text-transform:uppercase; letter-spacing:.04em; }
+
+    .qual { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:24px; }
+    .qual__cell { background:var(--ink); color:#fff; padding:12px 8px; border-radius:4px; text-align:center; font-weight:700; font-size:12px; line-height:1.3; letter-spacing:.02em; text-transform:uppercase; }
+    .qual__cell strong { display:block; color:var(--green); font-size:22px; font-family:var(--display); font-weight:400; line-height:1; margin-bottom:4px; }
+
+    .reviews { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+    .review { background:#f3f3f0; border-left:4px solid var(--green); padding:12px 14px; }
+    .review__body { font-size:14px; font-weight:500; color:var(--body); }
+    .review__attr { display:block; font-size:11px; font-weight:700; color:var(--ink); margin-top:6px; text-transform:uppercase; letter-spacing:.04em; }
+    .review__stars { color:var(--green); margin-right:4px; }
+
+    .footer-note { font-size:11px; color:var(--muted); margin-top:24px; line-height:1.4; }
+
+    .variant-nav { position:fixed; bottom:0; left:0; right:0; background:var(--ink); color:#fff; border-top:3px solid var(--green); display:flex; justify-content:space-between; align-items:center; padding:12px 16px; font-size:13px; font-family:var(--sans); z-index:10; }
+    .variant-nav a { color:var(--green); text-decoration:none; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+    .variant-nav .label { color:#aaa; font-weight:600; text-transform:uppercase; letter-spacing:.04em; font-size:11px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top-strip">
+      <span class="top-strip__brand">HOME IQ</span>
+      <span class="top-strip__badge">2026 PROGRAM</span>
+    </div>
+
+    <h1>SAVE <span class="h1__hl">$1,500</span> ON YOUR 2026 SHOWER REMODEL.</h1>
+    <p class="lede">Check if your home qualifies in 60 seconds. No phone call required.</p>
+
+    <img class="hero-photo" src="../../_assets/hero/hero-13.webp" alt="Newly installed walk-in shower" loading="eager" width="1280" height="720">
+
+    <a class="cta pb-track-link" href="https://homeimprove.io/get-quotes/walk-in-shower/" rel="noopener">
+      SAVE $1,500 →
+    </a>
+    <p class="cta__sub">Free Quote · 60-Second Check</p>
+
+    <div class="qual" aria-label="Qualification">
+      <div class="qual__cell"><strong>1</strong>Homeowner</div>
+      <div class="qual__cell"><strong>2</strong>Home 5+ years</div>
+      <div class="qual__cell"><strong>3</strong>US resident</div>
+    </div>
+
+    <div class="reviews">
+      <div class="review">
+        <p class="review__body"><span class="review__stars">★★★★★</span>"Quote beat every competitor. Quality still feels premium."</p>
+        <span class="review__attr">— Michelle C., Albany, NY</span>
+      </div>
+      <div class="review">
+        <p class="review__body"><span class="review__stars">★★★★★</span>"Team finished early. Bathroom looks like a designer planned it."</p>
+        <span class="review__attr">— Laura H., Scottsdale, AZ</span>
+      </div>
+    </div>
+
+    <p class="footer-note">Home IQ connects homeowners with independent, licensed remodelers. $1,500 promotion offered by participating installers; applies to qualifying full tub-to-shower projects only.</p>
+  </main>
+
+  <nav class="variant-nav" aria-label="Variant navigator">
+    <a href="../styled-1-editorial/index.html">← styled-1</a>
+    <span class="label">styled-2 · bold (2 / 5)</span>
+    <a href="../styled-3-pastel/index.html">styled-3 →</a>
+  </nav>
+</body>
+</html>
